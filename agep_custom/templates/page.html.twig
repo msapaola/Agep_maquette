@@ -1,0 +1,96 @@
+{#
+/**
+ * @file
+ * Template de page principal
+ */
+#}
+<script>
+  // Variable globale pour le chemin du thème
+  window.agepThemePath = '{{ base_path }}{{ directory }}';
+</script>
+
+<div id="loader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center">
+  <img src="{{ base_path }}{{ directory }}/assets/logos/logo-anime.gif" alt="Logo AGEP animé" class="loader-logo">
+  <div class="loader-progress">
+    <div class="loader-progress-bar"></div>
+  </div>
+</div>
+
+<nav class="navbar fixed left-0 right-0 z-[1000] bg-[var(--bg-primary)] shadow-[var(--shadow-md)] transition-all duration-300">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-24">
+      <a href="{{ path('<front>') }}" class="flex items-center">
+        <img src="{{ base_path }}{{ directory }}/assets/logos/logo-couleur.webp" alt="Logo AGEP" class="nav-logo h-24 w-auto">
+      </a>
+       <!-- Menu Desktop -->
+       <div class="hidden lg:flex items-center space-x-8">
+        {{ page.navigation }}
+       </div>
+
+      {# Toggle Thème et Menu Mobile #}
+      <div class="flex items-center space-x-4">
+        {# Bouton Toggle Thème #}
+       <button class="theme-toggle" aria-label="Basculer entre mode clair et sombre">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        
+        {# Bouton Menu Mobile #}
+        <button class="nav-toggle lg:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5" aria-label="Menu">
+          <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+          <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+          <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div class="nav-menu hidden lg:hidden pb-4">
+      <div class="flex flex-col space-y-4 mt-4">
+         {{ page.navigation }}           
+      </div>
+    </div>
+  </div>
+</nav>
+      
+<main role="main">
+  {% if page.hero %}
+    <div class="hero-region">
+      {{ page.hero }}
+    </div>
+  {% endif %}
+
+  {% if page.mission %}
+    <div class="mission -region">
+      {{ page.mission }}
+    </div>
+  {% endif %}
+
+{% if page.featured_projects %}
+    {{ page.featured_projects }}
+{% endif %}
+
+{% if page.actualites_accueil %}
+    {{ page.actualites_accueil }}
+ {% endif %}
+
+{% if page.single_project %} 
+    {{ page.single_project }}
+{% endif %}
+
+{% if page.single_article %} 
+    {{ page.single_article }}
+{% endif %}
+  
+  {{ page.highlighted }}
+  {{ page.help }}
+  
+  {{ page.content }}
+</main>
+
+{% if page.footer %}
+  <footer class="bg-[var(--bg-secondary)] border-t border-[var(--bg-tertiary)] py-12">
+    {{ page.footer }}
+  </footer>
+{% endif %}

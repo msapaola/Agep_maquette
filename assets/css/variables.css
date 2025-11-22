@@ -1,0 +1,113 @@
+/* === VARIABLES CSS POUR LE SYSTÈME DE THÈME AGEP === */
+
+/* === MODE CLAIR (par défaut) === */
+:root {
+    /* Couleurs principales */
+    --color-blue-dominant: #1C3AB5;
+    --color-cyan: #3D95C9;
+    --color-red: #E73733;
+    --color-yellow: #FFCA41;
+    
+    /* Couleurs secondaires */
+    --color-green-1: #57AA1C;
+    --color-green-2: #69BD42;
+    --color-blue-green-dark: #195544;
+    --color-grey-dark-1: #363B3F;
+    --color-red-bordeaux: #CF2650;
+    --color-brown-grey: #BD5112;
+    --color-black-grey: #262A27;
+    --color-grey-2: #202324;
+    --color-grey-3: #403F3C;
+    --color-red-brown-2: #C7201C;
+    
+    /* Couleurs de fond */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F5F5F5;
+    --bg-tertiary: #E8E8E8;
+    
+    /* Couleurs de texte */
+    --text-primary: #262A27;
+    --text-secondary: #363B3F;
+    --text-tertiary: #6B7280;
+    --text-inverse: #FFFFFF;
+    
+    /* Couleurs d'accent */
+    --accent-primary: #1C3AB5;
+    --accent-secondary: #3D95C9;
+    --accent-success: #57AA1C;
+    --accent-warning: #FFCA41;
+    --accent-danger: #E73733;
+    
+    /* Logos */
+    --logo-nav: url('../logos/logo-couleur.webp');
+    --logo-footer: url('../logos/logo-noir.webp');
+    --logo-loader: url('../logos/logo-anime.gif');
+    
+    /* Ombres */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* === MODE SOMBRE === */
+[data-theme="dark"] {
+    /* Couleurs de fond */
+    --bg-primary: #202324;
+    --bg-secondary: #262A27;
+    --bg-tertiary: #363B3F;
+    
+    /* Couleurs de texte */
+    --text-primary: #FFFFFF;
+    --text-secondary: #E0E0E0;
+    --text-tertiary: #B0B0B0;
+    --text-inverse: #262A27;
+    
+    /* Couleurs d'accent ajustées pour meilleur contraste */
+    --accent-primary: #3D95C9; /* Bleu plus clair */
+    --accent-secondary: #5DB3E8;
+    --accent-success: #69BD42; /* Vert plus vif */
+    --accent-warning: #FFD966;
+    --accent-danger: #FF6B6B;
+    
+    /* Logos pour mode sombre */
+    --logo-nav: url('../logos/logo-blanc.webp');
+    --logo-footer: url('../logos/logo-blanc.webp');
+    --logo-loader: url('../logos/logo-anime.gif'); /* Toujours le même */
+    
+    /* Ombres ajustées pour mode sombre */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+}
+
+/* === TRANSITION GLOBALE POUR CHANGEMENT DE THÈME === */
+* {
+    transition: background-color var(--transition-base), 
+                color var(--transition-base), 
+                border-color var(--transition-base);
+}
+
+/* === DÉSACTIVER LES TRANSITIONS PENDANT LE CHANGEMENT DE THÈME === */
+.theme-changing *,
+.theme-changing *::before,
+.theme-changing *::after {
+    transition: none !important;
+}
+
+/* === EXCEPTIONS POUR ÉLÉMENTS QUI NE DOIVENT PAS TRANSITIONNER === */
+img, 
+svg, 
+video,
+iframe,
+canvas {
+    transition: none;
+}
+
+

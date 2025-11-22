@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Template pour la vue unformatted du projet single
+ * Machine name de la vue: projetsingle
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+    ]
+  %}
+  <div{{ row.attributes.addClass(row_classes) }}>
+    {{- row.content -}}
+  </div>
+{% endfor %}
+

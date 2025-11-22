@@ -1,0 +1,25 @@
+global:
+  version: 1.0
+  css:
+    theme:
+      assets/css/variables.css: {}
+      assets/css/tailwind-compiled.css: {}
+      assets/css/main.css: {}
+      assets/css/aos.css: {}
+      assets/fontawesome/css/all.min.css: {}
+      assets/css/glightbox.min.css: {}
+      assets/css/swiper-bundle.min.css: {}
+  js:
+    assets/js/utils.js: {}
+    assets/js/theme.js: {}
+    assets/js/loader.js: {}
+    assets/js/animations.js: {}
+    assets/js/main.js: {}
+    assets/js/aos.js: {}
+    assets/fontawesome/js/all.min.js: {}
+    assets/js/glightbox.min.js: {}
+    assets/js/swiper-bundle.min.js: {}
+    assets/js/particles.min.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

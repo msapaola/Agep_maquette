@@ -1,0 +1,353 @@
+<!-- === PROJETS PHARES === -->
+<section class="section">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-4xl md:text-5xl font-bold mb-12 fade-in" data-aos="fade-up">Projets Phares</h2>
+        <div class="swiper projects-swiper fade-in" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                <!-- Projet 1 -->
+               
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<div class="swiper-slide">
+    <div class="card overflow-hidden" data-tilt>
+        <img src="{{ field_thumbnail }}" alt="Boulevard Lumumba" class="w-full h-64 object-cover mb-4">
+        <h3 class="text-2xl font-bold mb-2">{{ title }}</h3>
+        <p class="text-[var(--text-secondary)] mb-4">{{ field_contenu }} </p>
+        <a href="#" class="btn btn-secondary">En savoir plus</a>
+    </div>
+</div>
+
+<div class="swiper-slide">
+    <div class="card overflow-hidden group hover:shadow-2xl transition-all duration-300" data-tilt>
+        <div class="relative overflow-hidden">
+            <img src="{{ field_thumbnail }}" alt="kinshasa.agep.cd" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span class="absolute top-4 left-4 bg-[var(--accent-success)] text-white px-3 py-1 rounded-full text-xs font-bold uppercase">En Cours</span>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="flex gap-4 text-sm items-center">
+                    <span class="flex items-center gap-1">
+                        <i class="fa-regular fa-clock text-white text-sm"></i>
+                        {{ created }}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2 text-[var(--text-primary)]">{{ title }}</h3>
+            <p class="text-[var(--text-secondary)] mb-4 leading-relaxed">{{ field_contenu }}</p>
+            <a href="{{ view_node }}" class="btn btn-secondary">
+                En savoir plus
+            </a>
+        </div>
+    </div>
+</div>  
+
+<div class="swiper-slide">
+    <div class="card overflow-hidden" data-tilt>
+        {{ field_thumbnail }}
+        <h3 class="text-2xl font-bold mb-2">{{ title }}</h3>
+        <p class="text-[var(--text-secondary)] mb-4">{{ field_contenu }}</p>
+        <a href="{{ url }}" class="btn btn-secondary">En savoir plus</a>
+    </div>
+</div>
+
+
+
+
+
+   <!-- Breadcrumb -->
+<section class="pt-24 pb-4 bg-[var(--bg-secondary)]">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex items-center space-x-2 text-sm fade-in" data-aos="fade-up">
+            <a href="/accueil" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Accueil</a>
+            <span class="text-[var(--text-tertiary)]">/</span>
+            <a href="/projects" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Projets</a>
+            <span class="text-[var(--text-tertiary)]">/</span>
+            <span class="text-[var(--text-primary)]" id="project-name-breadcrumb">Projet</span>
+        </nav>
+    </div>
+</section>
+
+<!-- Project Header -->
+<section class="project-header" id="project-header">
+    <div class="project-header-content container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+        <div class="fade-in" data-aos="fade-up">
+            <span class="badge bg-white text-[var(--accent-primary)] mb-4 inline-block" id="project-status">Terminé</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" id="project-title">{{ title }}</h1>
+            <div class="flex flex-wrap justify-center gap-6 text-lg">
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span id="project-location">Gombe, Kinshasa</span>
+                </div>
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <span id="project-year">2023</span>
+                </div>
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                    </svg>
+                    <span id="project-category">Embellissement</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Description -->
+<section class="section bg-[var(--bg-secondary)]">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 fade-in" data-aos="fade-up">À Propos du Projet</h2>
+            <div class="prose prose-lg max-w-none fade-in" data-aos="fade-up" data-aos-delay="200" id="project-description">
+                <!-- Description principale -->
+                <div class="mb-8" id="project-description-main">
+                    {{ field_contenu }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Before/After Slider -->
+<section class="section">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center fade-in" data-aos="fade-up">Avant / Après</h2>
+        <div class="before-after-container fade-in" data-aos="fade-up" data-aos-delay="200" id="before-after-container">
+            {{ field_comparaisons_photos }}
+            <div class="before-after-slider" id="slider"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Gallery -->
+<section class="section bg-[var(--bg-secondary)]">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center fade-in" data-aos="fade-up">Galerie du Projet</h2>
+        <div class="project-gallery fade-in" data-aos="fade-up" data-aos-delay="200" id="project-gallery">
+            <div class="gallery-item">
+                {{ field_gallerie }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Projects -->
+<section class="section">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center fade-in" data-aos="fade-up">Projets Similaires</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <article class="card fade-in" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=400&fit=crop" alt="Place de la Victoire" class="w-full h-48 object-cover rounded-lg mb-4">
+                <span class="badge bg-[var(--accent-success)] text-white mb-2">Terminé</span>
+                <h3 class="text-xl font-bold mb-2">Place de la Victoire</h3>
+                <p class="text-[var(--text-secondary)] mb-4">Aménagement paysager et installation d'un système d'éclairage moderne.</p>
+                <a href="project-single.html?project=place-victoire" class="text-[var(--accent-primary)] font-medium hover:underline">Voir le projet →</a>
+            </article>
+            <article class="card fade-in" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop" alt="Rond-point Ngaliema" class="w-full h-48 object-cover rounded-lg mb-4">
+                <span class="badge bg-[var(--accent-success)] text-white mb-2">Terminé</span>
+                <h3 class="text-xl font-bold mb-2">Rond-point Ngaliema</h3>
+                <p class="text-[var(--text-secondary)] mb-4">Installation d'un monument artistique et d'une fontaine lumineuse.</p>
+                <a href="project-single.html?project=rond-point-ngaliema" class="text-[var(--accent-primary)] font-medium hover:underline">Voir le projet →</a>
+            </article>
+            <article class="card fade-in" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop" alt="Avenue du Port" class="w-full h-48 object-cover rounded-lg mb-4">
+                <span class="badge bg-[var(--accent-success)] text-white mb-2">Terminé</span>
+                <h3 class="text-xl font-bold mb-2">Avenue du Port</h3>
+                <p class="text-[var(--text-secondary)] mb-4">Installation de mobilier urbain design et aménagement des trottoirs.</p>
+                <a href="project-single.html?project=avenue-port" class="text-[var(--accent-primary)] font-medium hover:underline">Voir le projet →</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+
+<section class="section bg-[var(--bg-secondary)]">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-4xl md:text-5xl font-bold mb-12 fade-in" data-aos="fade-up">Actualités Récentes</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            
+        </div>
+        <div class="text-center mt-8">
+            <a href="/actualites" class="btn btn-primary">Voir Toutes les Actualités</a>
+        </div>
+    </div>
+</section>
+
+
+
+<article class="card fade-in" data-aos="fade-up" data-aos-delay="100">
+    <div class="relative mb-4">
+        {{ field_thumbnail }}
+        <span class="badge badge-new absolute top-4 right-4">Nouveau</span>
+    </div>
+    <time class="text-sm text-[var(--text-tertiary)]">{{ created }}</time>
+    <h3 class="text-xl font-bold mt-2 mb-2">{{ title }} </h3>
+    <p class="text-[var(--text-secondary)] mb-4">{{ body }}</p>
+    {{ view_node }}
+</article>
+
+
+
+ <!-- Breadcrumb -->
+ <section class="pt-24 pb-8 bg-[var(--bg-secondary)]">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex items-center space-x-2 text-sm fade-in" data-aos="fade-up">
+            <a href="/accueil" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Accueil</a>
+            <span class="text-[var(--text-tertiary)]">/</span>
+            <a href="/actualites" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Actualités</a>
+            <span class="text-[var(--text-tertiary)]">/</span>
+            <span class="text-[var(--text-primary)]">Article</span>
+        </nav>
+    </div>
+</section>
+
+<!-- Article Header -->
+<section class="py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="article-content">
+            <!-- Catégorie et Badge -->
+            <div class="flex items-center gap-4 mb-4 fade-in" data-aos="fade-up">
+                <span class="badge bg-[var(--accent-primary)] text-white">{{ field_categorie }}
+                </span>
+            </div>
+            
+            <!-- Titre -->
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 fade-in" data-aos="fade-up" data-aos-delay="100">
+                {{ title }}
+            </h1>
+            
+            <!-- Meta Informations -->
+            <div class="article-meta fade-in" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center text-[var(--text-secondary)]">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <time datetime="2024-01-15">{{ created }}</time>
+                </div>
+            </div>
+            
+            <!-- Image Principale -->
+            <div class="fade-in" data-aos="fade-up" data-aos-delay="300">
+                <img src="{{ field_media_image }}" alt="Kinshasa.agep.cd" class="w-full h-auto rounded-lg shadow-lg">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contenu de l'Article -->
+<section class="py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="article-content">
+            {{ body }}
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Article Header -->
+<section class="py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="article-content">
+            <!-- Catégorie et Badge -->
+            <div class="flex items-center gap-4 mb-4 fade-in" data-aos="fade-up">
+                <span class="badge bg-[var(--accent-primary)] text-white">{{ field_categorie }}</span>
+            </div>
+            
+            <!-- Titre -->
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 fade-in" data-aos="fade-up" data-aos-delay="100">
+                {{ title }}
+            </h1>
+            
+            <!-- Meta Informations -->
+            <div class="article-meta fade-in" data-aos="fade-up" data-aos-delay="200">
+                <div class="article-meta-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <time datetime="2024-01-15">{{ created }}</time>
+                </div>
+                <div class="article-meta-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>5 min de lecture</span>
+                </div>
+            </div>
+            
+            <!-- Image Principale -->
+            <div class="fade-in" data-aos="fade-up" data-aos-delay="300">
+                <img src="{{ field_media_image }}" alt="Kinshasa.agep.cd" class="article-featured-image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contenu de l'Article -->
+<section class="py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="article-content">
+            <!-- Contenu Principal -->
+            <div class="article-content-rich fade-in" data-aos="fade-up" data-aos-delay="100">
+                {{ body }}
+            </div>
+
+            <!-- Boutons de Partage -->
+            <div class="share-section fade-in" data-aos="fade-up" data-aos-delay="300">
+                <h3>Partager cet article</h3>
+                <div class="share-buttons">
+                    <button class="share-btn share-facebook" aria-label="Partager sur Facebook">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </button>
+                    <button class="share-btn share-whatsapp" aria-label="Partager sur WhatsApp">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                    </button>
+                    <button class="share-btn share-twitter" aria-label="Partager sur Twitter">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </button>
+                    <button class="share-btn share-linkedin" aria-label="Partager sur LinkedIn">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </button>
+                    <button class="share-btn share-copy" aria-label="Copier le lien">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Auteur -->
+            <div class="author-card fade-in" data-aos="fade-up" data-aos-delay="400">
+                <h3>À propos de l'AGEP</h3>
+                <p>
+                    L'Agence de Gestion et d'Embellissement des Espaces Publics œuvre pour transformer Kinshasa en une capitale moderne, durable et accueillante. Notre mission est de créer des espaces publics de qualité qui améliorent la vie des citoyens et reflètent l'ambition de notre ville.
+                </p>
+                <a href="/a-propos">En savoir plus sur l'AGEP</a>
+            </div>
+        </div>
+    </div>
+</section>

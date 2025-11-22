@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Fonctions et hooks du thème AGEP Custom
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function agep_custom_preprocess_html(&$variables) {
+  // Ajouter l'attribut data-theme pour le mode clair/sombre
+  $variables['attributes']['data-theme'] = 'light';
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function agep_custom_preprocess_page(&$variables) {
+  // Ajouter des variables personnalisées
+  $variables['base_path'] = base_path();
+  $variables['theme_path'] = \Drupal::service('extension.list.theme')->getPath('agep_custom');
+}

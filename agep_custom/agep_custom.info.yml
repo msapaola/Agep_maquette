@@ -1,0 +1,24 @@
+name: 'AGEP Custom'
+type: theme
+description: 'Thème personnalisé pour l''AGEP Kinshasa'
+core_version_requirement: ^10 || ^11
+base theme: false
+
+libraries:
+  - agep_custom/global
+
+regions:
+  header: 'Header'
+  navigation: 'Navigation'
+  hero: 'Hero Section'
+  mission: 'Mission Section'
+  featured_projects: 'Projets Phares'
+  actualites_accueil: 'Actualités Accueil'
+  single_project: 'Single Project'
+  single_article: 'Single Article'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Sidebar First'
+  sidebar_second: 'Sidebar Second'
+  footer: 'Footer'

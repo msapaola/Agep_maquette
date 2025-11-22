@@ -1,0 +1,12 @@
+# robots.txt pour le site AGEP
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://agep-kinshasa.cd/sitemap.xml
+
+# Désactiver l'indexation des fichiers de développement
+Disallow: /assets/js/
+Disallow: /assets/css/
+
+

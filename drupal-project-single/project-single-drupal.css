@@ -1,0 +1,264 @@
+/**
+ * Styles CSS spécifiques pour la page Project Single dans Drupal
+ * Ces styles adaptent les sélecteurs pour fonctionner avec la structure HTML générée par Drupal
+ */
+
+/* === AVANT/APRÈS SLIDER === */
+
+/* Container principal */
+.before-after-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+    background-color: var(--bg-tertiary);
+}
+
+/* Structure Drupal pour comparaison photos */
+.before-after-container .paragraph--type--comparaison-photos {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/* Conteneur pour chaque image (Avant et Après) */
+.before-after-container .paragraph--type--comparaison-photos > div {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Image Avant (première div) */
+.before-after-container .paragraph--type--comparaison-photos > div:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Image Après (deuxième div) */
+.before-after-container .paragraph--type--comparaison-photos > div:last-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    clip-path: inset(0 50% 0 0);
+}
+
+/* Images imbriquées dans la structure Drupal */
+.before-after-container .paragraph--type--comparaison-photos img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* S'assurer que tous les conteneurs d'images remplissent leur parent */
+.before-after-container .paragraph--type--comparaison-photos > div > div:last-child,
+.before-after-container .paragraph--type--comparaison-photos > div > div > div,
+.before-after-container .paragraph--type--comparaison-photos > div > div > div > div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Labels Avant/Après */
+.before-after-container .paragraph--type--comparaison-photos > div > div:first-child {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.before-after-container .paragraph--type--comparaison-photos > div:last-child > div:first-child {
+    left: auto;
+    right: 20px;
+}
+
+/* Slider handle */
+.before-after-slider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-primary);
+    cursor: ew-resize;
+    z-index: 10;
+    transform: translateX(-50%);
+}
+
+.before-after-slider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    border: 3px solid var(--bg-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.before-after-slider::after {
+    content: '⟷';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* === GALERIE === */
+
+/* Container principal de la galerie */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+/* Structure Drupal pour la galerie */
+.project-gallery .paragraph--type--gallerie {
+    grid-column: 1 / -1;
+}
+
+/* Conteneur des images de la galerie */
+.project-gallery .paragraph--type--gallerie > div > div:last-child {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Chaque item de galerie (div contenant une image) */
+.project-gallery .paragraph--type--gallerie > div > div:last-child > div {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+    background-color: var(--bg-tertiary);
+}
+
+/* Images de la galerie */
+.project-gallery .paragraph--type--gallerie img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform var(--transition-slow);
+    display: block !important;
+}
+
+/* S'assurer que tous les conteneurs d'images de galerie remplissent leur parent */
+.project-gallery .paragraph--type--gallerie > div > div:last-child > div,
+.project-gallery .paragraph--type--gallerie > div > div:last-child > div > div,
+.project-gallery .paragraph--type--gallerie > div > div:last-child > div > div > div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Effet hover sur les images */
+.project-gallery .paragraph--type--gallerie > div > div:last-child > div:hover img {
+    transform: scale(1.1);
+}
+
+/* Overlay au survol */
+.project-gallery .paragraph--type--gallerie > div > div:last-child > div::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background var(--transition-base);
+    pointer-events: none;
+}
+
+.project-gallery .paragraph--type--gallerie > div > div:last-child > div:hover::after {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Titre de la galerie (optionnel) */
+.project-gallery .paragraph--type--gallerie > div > div:first-child {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+/* === RESPONSIVE === */
+
+@media (max-width: 768px) {
+    .before-after-container {
+        height: 300px;
+    }
+    
+    .project-gallery .paragraph--type--gallerie > div > div:last-child {
+        grid-template-columns: 1fr;
+    }
+    
+    .before-after-container .paragraph--type--comparaison-photos > div > div:first-child {
+        font-size: 0.875rem;
+        padding: 6px 12px;
+        top: 10px;
+        left: 10px;
+    }
+    
+    .before-after-container .paragraph--type--comparaison-photos > div:last-child > div:first-child {
+        right: 10px;
+    }
+}
+
+/* === CORRECTIONS SPÉCIFIQUES DRUPAL === */
+
+/* S'assurer que les images Drupal sont bien affichées */
+.before-after-container .paragraph--type--comparaison-photos > div > div:last-child img,
+.before-after-container .paragraph--type--comparaison-photos > div > div > div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* S'assurer que les images de galerie Drupal sont bien affichées */
+.project-gallery .paragraph--type--gallerie img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Masquer les labels visuellement cachés de Drupal */
+.before-after-container .visually-hidden,
+.project-gallery .visually-hidden {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    word-wrap: normal;
+}
+

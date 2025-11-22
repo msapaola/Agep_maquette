@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Album photo de l'AGEP - Découvrez nos réalisations en images">
+    <title>Album Photo - AGEP Kinshasa</title>
+    
+    <link rel="stylesheet" href="assets/css/tailwind-compiled.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    <link rel="icon" type="image/webp" href="assets/logos/logo-couleur.webp">
+    
+    <style>
+        .album-hero {
+            position: relative;
+            min-height: 65vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            isolation: isolate;
+        }
+        .album-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(130deg, rgba(14,26,72,0.92), rgba(61,149,201,0.78));
+            z-index: 1;
+        }
+        .album-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--hero-image, radial-gradient(circle, rgba(28,58,181,0.35), transparent)) center/cover no-repeat;
+            opacity: 0.4;
+            filter: blur(6px);
+            transform: scale(1.05);
+            z-index: 0;
+            transition: opacity 0.6s ease;
+        }
+        .album-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .album-stat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.45rem 1.3rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            font-weight: 600;
+            backdrop-filter: blur(6px);
+        }
+        .album-slider-wrapper {
+            position: relative;
+            border-radius: 30px;
+            background: var(--bg-secondary);
+            padding: 2.5rem 2rem 4rem;
+            box-shadow: var(--shadow-xl);
+        }
+        .swiper {
+            padding-bottom: 3.5rem;
+        }
+        .swiper-slide {
+            height: auto;
+        }
+        .album-slide {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        .album-slide img {
+            width: 100%;
+            height: 440px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        @media (max-width: 768px) {
+            .album-slide img { height: 320px; }
+        }
+        .album-slide:hover img {
+            transform: scale(1.08);
+        }
+        .album-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent 55%);
+            pointer-events: none;
+        }
+        .album-slide-caption {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
+        }
+        .album-slide-counter {
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.35);
+            font-size: 0.85rem;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+        }
+        .swiper-button-prev,
+        .swiper-button-next {
+            color: var(--accent-primary);
+        }
+        .swiper-pagination-bullet-active {
+            background: var(--accent-primary);
+        }
+        .gallery-grid {
+            display: grid;
+            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: var(--shadow-lg);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.45));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)]">
+    
+    <div id="loader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center">
+        <img src="assets/logos/logo-anime.gif" alt="Logo AGEP animé" class="loader-logo">
+        <div class="loader-progress">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+    
+    <nav class="navbar fixed top-0 left-0 right-0 z-[1000] bg-[var(--bg-primary)] shadow-[var(--shadow-md)] transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/logos/logo-couleur.webp" alt="Logo AGEP" class="nav-logo h-12 w-auto">
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Accueil</a>
+                    <a href="about.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">À Propos</a>
+                    <a href="projects.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Projets</a>
+                    <a href="news.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Actualités</a>
+                    <a href="gallery.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors active">Galerie</a>
+                    <a href="partnerships.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Partenariats</a>
+                    <a href="contact.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="theme-toggle" aria-label="Basculer entre mode clair et sombre">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                    <button class="nav-toggle lg:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5" aria-label="Menu">
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="nav-menu hidden lg:hidden pb-4">
+                <div class="flex flex-col space-y-4 mt-4">
+                    <a href="index.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Accueil</a>
+                    <a href="about.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">À Propos</a>
+                    <a href="projects.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Projets</a>
+                    <a href="news.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Actualités</a>
+                    <a href="gallery.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2 active">Galerie</a>
+                    <a href="partnerships.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Partenariats</a>
+                    <a href="contact.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Breadcrumb -->
+    <section class="pt-24 pb-4 bg-[var(--bg-secondary)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center space-x-2 text-sm fade-in" data-aos="fade-up">
+                <a href="index.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    Accueil
+                </a>
+                <span class="text-[var(--text-tertiary)]">/</span>
+                <a href="gallery.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Galerie</a>
+                <span class="text-[var(--text-tertiary)]">/</span>
+                <span class="text-[var(--text-primary)] font-semibold" id="album-name-breadcrumb">Album</span>
+            </nav>
+        </div>
+    </section>
+    
+    <!-- Album Hero -->
+    <section class="album-hero" id="album-hero">
+        <div class="album-hero-content container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <div class="flex flex-wrap gap-3 justify-center mb-6">
+                <span class="album-stat-pill" id="photo-count-pill">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18"></path>
+                    </svg>
+                    <span id="photo-count">0 photos</span>
+                </span>
+                <span class="album-stat-pill">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Collection AGEP</span>
+                </span>
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4" id="album-title">Album Photo</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-white/85" id="album-description">
+                Découvrez nos réalisations emblématiques à travers une sélection d’images immersives.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Slider Section -->
+    <section class="section">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="album-slider-wrapper fade-in" data-aos="fade-up">
+                <div class="swiper" id="album-swiper">
+                    <div class="swiper-wrapper" id="album-swiper-wrapper"></div>
+                    <div class="swiper-pagination mt-4"></div>
+                    <div class="swiper-button-prev" aria-label="Précédent"></div>
+                    <div class="swiper-button-next" aria-label="Suivant"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Grid -->
+    <section class="section pt-0">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                <div>
+                    <h2 class="text-3xl font-bold text-[var(--text-primary)]">Galerie complète</h2>
+                    <p class="text-[var(--text-secondary)]">Parcourez toutes les photos de cet album.</p>
+                </div>
+                <div class="flex items-center gap-2 text-[var(--text-secondary)] text-sm">
+                    <span class="w-2 h-2 rounded-full bg-[var(--accent-primary)]"></span>
+                    <span>Appuyez sur une image pour l’agrandir</span>
+                </div>
+            </div>
+            <div class="gallery-grid" id="gallery-grid"></div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-[var(--bg-secondary)] border-t border-[var(--bg-tertiary)] py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="assets/logos/logo-noir.webp" alt="Logo AGEP" class="footer-logo h-12 mb-4">
+                    <p class="text-[var(--text-secondary)] text-sm">Transformer Kinshasa, Embellir Notre Avenir</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Accueil</a></li>
+                        <li><a href="about.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">À Propos</a></li>
+                        <li><a href="projects.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Projets</a></li>
+                        <li><a href="news.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Actualités</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Liens Utiles</h4>
+                    <ul class="space-y-2">
+                        <li><a href="gallery.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Galerie</a></li>
+                        <li><a href="partnerships.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Partenariats</a></li>
+                        <li><a href="contact.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-3 text-sm text-[var(--text-secondary)]">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-[var(--accent-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Kinshasa, RDC
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-[var(--accent-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            +243 XXX XXX XXX
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-[var(--accent-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            contact@agep-kinshasa.cd
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-[var(--bg-tertiary)] pt-8 text-center text-sm text-[var(--text-tertiary)]">
+                <p>&copy; 2024 AGEP - Agence de Gestion et d'Embellissement des Espaces Publics. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <button id="scrollToTop" class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-[var(--accent-primary)] text-white rounded-full shadow-lg hover:bg-[var(--accent-secondary)] transition-all duration-300 opacity-0 pointer-events-none flex items-center justify-center" aria-label="Retour en haut">
+        ↑
+    </button>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+        
+        const albums = {
+            'boulevard-lumumba': {
+                title: 'Boulevard Lumumba',
+                description: 'Réhabilitation et embellissement de l’avenue principale avec un éclairage moderne et un mobilier urbain design.',
+                photos: [
+                    { thumb: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop', full: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=800&fit=crop', alt: 'Boulevard Lumumba' },
+                    { thumb: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=600&fit=crop', full: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1200&h=800&fit=crop', alt: 'Boulevard Lumumba' },
+                    { thumb: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=800&fit=crop', full: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop', alt: 'Boulevard Lumumba' },
+                    { thumb: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop', full: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=800&fit=crop', alt: 'Boulevard Lumumba' },
+                    { thumb: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=600&fit=crop', full: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1200&h=800&fit=crop', alt: 'Boulevard Lumumba' },
+                    { thumb: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=800&fit=crop', full: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop', alt: 'Boulevard Lumumba' }
+                ]
+            },
+            'place-victoire': {
+                title: 'Place de la Victoire',
+                description: 'Un espace de rassemblement réinventé avec un paysage vibrant et une ambiance lumineuse.',
+                photos: [
+                    { thumb: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=700&fit=crop', full: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop', alt: 'Place de la Victoire' },
+                    { thumb: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=700&fit=crop', full: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1200&h=800&fit=crop', alt: 'Place de la Victoire' }
+                ]
+            },
+            'parc-gombe': {
+                title: 'Parc de la Gombe',
+                description: 'Un havre de verdure au cœur de Kinshasa, pensé pour la détente et la convivialité.',
+                photos: [
+                    { thumb: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=500&fit=crop', full: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=800&fit=crop', alt: 'Parc de la Gombe' },
+                    { thumb: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=500&fit=crop', full: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop', alt: 'Parc de la Gombe' }
+                ]
+            },
+            'rond-point': {
+                title: 'Rond-point Ngaliema',
+                description: 'Un monument artistique et une fontaine lumineuse qui redéfinissent ce carrefour stratégique.',
+                photos: [
+                    { thumb: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=800&fit=crop', full: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1200&h=800&fit=crop', alt: 'Rond-point Ngaliema' },
+                    { thumb: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop', full: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=800&fit=crop', alt: 'Rond-point Ngaliema' }
+                ]
+            },
+            'evenements': {
+                title: 'Événements',
+                description: 'Les moments forts et les inaugurations majeures portés par l’AGEP.',
+                photos: [
+                    { thumb: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop', full: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop', alt: 'Événement' },
+                    { thumb: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=600&fit=crop', full: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1200&h=800&fit=crop', alt: 'Événement' }
+                ]
+            }
+        };
+        
+        let swiperInstance = null;
+        let lightboxInstance = null;
+        
+        function getAlbumFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('album') || 'boulevard-lumumba';
+        }
+        
+        function setHeroBackground(imageUrl) {
+            const hero = document.getElementById('album-hero');
+            if (hero && imageUrl) {
+                hero.style.setProperty('--hero-image', `url('${imageUrl}')`);
+            }
+        }
+        
+        function buildSlider(album, albumId) {
+            const wrapper = document.getElementById('album-swiper-wrapper');
+            if (!wrapper) return;
+            wrapper.innerHTML = '';
+            
+            album.photos.forEach((photo, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'swiper-slide';
+                
+                const slideContent = document.createElement('div');
+                slideContent.className = 'album-slide';
+                
+                const link = document.createElement('a');
+                link.href = photo.full;
+                link.className = 'glightbox';
+                link.setAttribute('data-gallery', `album-${albumId}`);
+                
+                const img = document.createElement('img');
+                img.src = photo.full;
+                img.alt = photo.alt;
+                img.loading = 'lazy';
+                
+                const caption = document.createElement('div');
+                caption.className = 'album-slide-caption';
+                caption.innerHTML = `
+                    <div>
+                        <p class="text-sm text-white/70 uppercase tracking-[0.3em] mb-1">Photo ${index + 1}</p>
+                        <p class="text-lg font-semibold">${album.title}</p>
+                    </div>
+                    <span class="album-slide-counter">${index + 1}/${album.photos.length}</span>
+                `;
+                
+                link.appendChild(img);
+                slideContent.appendChild(link);
+                slideContent.appendChild(caption);
+                slide.appendChild(slideContent);
+                wrapper.appendChild(slide);
+            });
+        }
+        
+        function buildGalleryGrid(album, albumId) {
+            const galleryGrid = document.getElementById('gallery-grid');
+            if (!galleryGrid) return;
+            galleryGrid.innerHTML = '';
+            
+            album.photos.forEach((photo, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item fade-in';
+                galleryItem.setAttribute('data-aos', 'fade-up');
+                galleryItem.setAttribute('data-aos-delay', (index % 4) * 100);
+                
+                const link = document.createElement('a');
+                link.href = photo.full;
+                link.className = 'glightbox';
+                link.setAttribute('data-gallery', `album-${albumId}`);
+                
+                const img = document.createElement('img');
+                img.src = photo.thumb;
+                img.alt = photo.alt;
+                img.loading = 'lazy';
+                
+                link.appendChild(img);
+                galleryItem.appendChild(link);
+                galleryGrid.appendChild(galleryItem);
+            });
+        }
+        
+        function initSwiper(albumId) {
+            if (swiperInstance) {
+                swiperInstance.destroy(true, true);
+            }
+            
+            swiperInstance = new Swiper('#album-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 24,
+                loop: true,
+                speed: 800,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1.1,
+                        centeredSlides: true
+                    },
+                    1024: {
+                        slidesPerView: 1.5,
+                        centeredSlides: true
+                    },
+                    1400: {
+                        slidesPerView: 1.8,
+                        centeredSlides: true
+                    }
+                }
+            });
+        }
+        
+        function initLightbox(albumId) {
+            if (typeof GLightbox === 'undefined') {
+                console.error('GLightbox n\'est pas chargé');
+                return;
+            }
+            
+            if (lightboxInstance) {
+                try {
+                    lightboxInstance.destroy();
+                } catch (error) {
+                    console.warn('GLightbox destroy', error);
+                }
+            }
+            
+            lightboxInstance = GLightbox({
+                selector: `.glightbox[data-gallery="album-${albumId}"]`,
+                touchNavigation: true,
+                loop: true,
+                autoplayVideos: true,
+                onOpen: () => {
+                    const activeElement = document.activeElement;
+                    if (activeElement && typeof activeElement.blur === 'function') {
+                        activeElement.blur();
+                    }
+                }
+            });
+        }
+        
+        function loadAlbum() {
+            const albumId = getAlbumFromURL();
+            const album = albums[albumId];
+            
+            if (!album) {
+                window.location.href = 'gallery.html';
+                return;
+            }
+            
+            document.getElementById('album-title').textContent = album.title;
+            document.getElementById('album-name-breadcrumb').textContent = album.title;
+            document.title = `${album.title} - Galerie AGEP Kinshasa`;
+            document.getElementById('album-description').textContent = album.description || '';
+            
+            const photoCount = album.photos.length;
+            document.getElementById('photo-count').textContent = `${photoCount} ${photoCount > 1 ? 'photos' : 'photo'}`;
+            setHeroBackground(album.photos[0]?.full);
+            
+            buildSlider(album, albumId);
+            buildGalleryGrid(album, albumId);
+            
+            AOS.refresh();
+            
+            setTimeout(() => {
+                initSwiper(albumId);
+                initLightbox(albumId);
+            }, 200);
+        }
+        
+        function initGalleryPage() {
+            if (typeof GLightbox !== 'undefined') {
+                loadAlbum();
+            } else {
+                const checkGLightbox = setInterval(() => {
+                    if (typeof GLightbox !== 'undefined') {
+                        clearInterval(checkGLightbox);
+                        loadAlbum();
+                    }
+                }, 50);
+                
+                setTimeout(() => {
+                    clearInterval(checkGLightbox);
+                    if (typeof GLightbox === 'undefined') {
+                        console.error('GLightbox n\'a pas pu être chargé après 5 secondes');
+                    }
+                }, 5000);
+            }
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initGalleryPage);
+        } else {
+            initGalleryPage();
+        }
+        
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        if (scrollToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    scrollToTopBtn.classList.add('opacity-100');
+                } else {
+                    scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                    scrollToTopBtn.classList.remove('opacity-100');
+                }
+            });
+            
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
+</body>
+</html>
+

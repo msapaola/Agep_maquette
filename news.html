@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Actualités et communiqués de l'AGEP - Restez informé des dernières réalisations et événements">
+    <title>Actualités - AGEP Kinshasa</title>
+    
+    <link rel="stylesheet" href="assets/css/tailwind-compiled.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+    <link rel="icon" type="image/webp" href="assets/logos/logo-couleur.webp">
+</head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)]">
+    
+    <div id="loader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center">
+        <img src="assets/logos/logo-anime.gif" alt="Logo AGEP animé" class="loader-logo">
+        <div class="loader-progress">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+    
+    <nav class="navbar fixed top-0 left-0 right-0 z-[1000] bg-[var(--bg-primary)] shadow-[var(--shadow-md)] transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/logos/logo-couleur.webp" alt="Logo AGEP" class="nav-logo h-12 w-auto">
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Accueil</a>
+                    <a href="about.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">À Propos</a>
+                    <a href="projects.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Projets</a>
+                    <a href="news.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors active">Actualités</a>
+                    <a href="gallery.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Galerie</a>
+                    <a href="partnerships.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Partenariats</a>
+                    <a href="contact.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="theme-toggle" aria-label="Basculer entre mode clair et sombre">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                    <button class="nav-toggle lg:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5" aria-label="Menu">
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="nav-menu hidden lg:hidden pb-4">
+                <div class="flex flex-col space-y-4 mt-4">
+                    <a href="index.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Accueil</a>
+                    <a href="about.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">À Propos</a>
+                    <a href="projects.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Projets</a>
+                    <a href="news.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2 active">Actualités</a>
+                    <a href="gallery.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Galerie</a>
+                    <a href="partnerships.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Partenariats</a>
+                    <a href="contact.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="pt-32 pb-16 bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in" data-aos="fade-up">Actualités</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-90 fade-in" data-aos="fade-up" data-aos-delay="200">
+                Restez informé de nos dernières réalisations et événements
+            </p>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Featured Article -->
+            <article class="card mb-12 overflow-hidden fade-in" data-aos="fade-up" data-category="projet" data-date="2024">
+                <div class="md:flex">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop" alt="Inauguration" class="w-full h-64 md:h-full object-cover">
+                    </div>
+                    <div class="md:w-1/2 p-8">
+                        <span class="badge badge-new mb-4">Nouveau</span>
+                        <time class="text-sm text-[var(--text-tertiary)]">15 Janvier 2024</time>
+                        <h2 class="text-3xl font-bold mt-2 mb-4">Inauguration du Boulevard Lumumba</h2>
+                        <p class="text-[var(--text-secondary)] mb-6">Cérémonie officielle marquant l'achèvement de la réhabilitation du Boulevard Lumumba en présence des autorités locales et des partenaires. Ce projet de 2,5 km représente un investissement majeur dans l'embellissement de la capitale.</p>
+                        <a href="article.html" class="btn btn-primary">Lire l'article complet</a>
+                        <div class="flex gap-4 mt-6">
+                            <button class="text-[var(--text-tertiary)] hover:text-[var(--accent-primary)]" aria-label="Partager sur Facebook">📘</button>
+                            <button class="text-[var(--text-tertiary)] hover:text-[var(--accent-primary)]" aria-label="Partager sur Twitter">🐦</button>
+                            <button class="text-[var(--text-tertiary)] hover:text-[var(--accent-primary)]" aria-label="Partager sur LinkedIn">💼</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Grille d'articles -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="news-grid">
+                <article class="card fade-in" data-aos="fade-up" data-aos-delay="100" data-category="partenariat" data-date="2024">
+                    <div class="relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=400&fit=crop" alt="Partenariat" class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <time class="text-sm text-[var(--text-tertiary)]">10 Janvier 2024</time>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Nouveau Partenariat Stratégique</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">Signature d'un accord de partenariat avec une entreprise internationale pour le développement urbain durable de Kinshasa.</p>
+                    <a href="article.html" class="text-[var(--accent-primary)] font-medium hover:underline">Lire plus →</a>
+                </article>
+                
+                <article class="card fade-in" data-aos="fade-up" data-aos-delay="200" data-category="projet" data-date="2024">
+                    <div class="relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop" alt="Projet" class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <time class="text-sm text-[var(--text-tertiary)]">5 Janvier 2024</time>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Lancement du Parc de la Gombe</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">Début des travaux de création du nouveau parc communautaire dans le quartier de la Gombe.</p>
+                    <a href="article.html" class="text-[var(--accent-primary)] font-medium hover:underline">Lire plus →</a>
+                </article>
+                
+                <article class="card fade-in" data-aos="fade-up" data-aos-delay="300" data-category="evenement" data-date="2023">
+                    <div class="relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop" alt="Événement" class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <time class="text-sm text-[var(--text-tertiary)]">20 Décembre 2023</time>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Cérémonie de Remise de Prix</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">L'AGEP reçoit le prix d'excellence en aménagement urbain lors de la cérémonie annuelle des infrastructures.</p>
+                    <a href="article.html" class="text-[var(--accent-primary)] font-medium hover:underline">Lire plus →</a>
+                </article>
+                
+                <article class="card fade-in" data-aos="fade-up" data-aos-delay="400" data-category="communique" data-date="2023">
+                    <div class="relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=400&fit=crop" alt="Communiqué" class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <time class="text-sm text-[var(--text-tertiary)]">15 Décembre 2023</time>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Rapport d'Activités 2023</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">Publication du rapport annuel présentant les réalisations et l'impact de l'AGEP sur la transformation urbaine.</p>
+                    <a href="article.html" class="text-[var(--accent-primary)] font-medium hover:underline">Lire plus →</a>
+                </article>
+                
+                <article class="card fade-in" data-aos="fade-up" data-aos-delay="500" data-category="projet" data-date="2023">
+                    <div class="relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop" alt="Projet" class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <time class="text-sm text-[var(--text-tertiary)]">10 Décembre 2023</time>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Achèvement de la Place de la Victoire</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">Finalisation des travaux d'aménagement de la Place de la Victoire avec inauguration prévue en janvier.</p>
+                    <a href="article.html" class="text-[var(--accent-primary)] font-medium hover:underline">Lire plus →</a>
+                </article>
+                
+                <article class="card fade-in" data-aos="fade-up" data-aos-delay="600" data-category="partenariat" data-date="2023">
+                    <div class="relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop" alt="Partenariat" class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <time class="text-sm text-[var(--text-tertiary)]">5 Décembre 2023</time>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Rencontre avec les Partenaires</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">Organisation d'une journée de rencontre avec tous les partenaires pour discuter des projets futurs.</p>
+                    <a href="article.html" class="text-[var(--accent-primary)] font-medium hover:underline">Lire plus →</a>
+                </article>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center items-center gap-2 mt-12 fade-in" data-aos="fade-up">
+                <button class="pagination-btn pagination-prev" disabled>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <span class="px-3 text-[var(--text-tertiary)]">...</span>
+                <button class="pagination-btn">10</button>
+                <button class="pagination-btn pagination-next">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Newsletter -->
+            <div class="mt-12 card bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white text-center fade-in" data-aos="fade-up">
+                <h3 class="text-2xl font-bold mb-4">Restez Informé</h3>
+                <p class="mb-6 opacity-90">Abonnez-vous à notre newsletter pour recevoir les dernières actualités</p>
+                <form class="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+                    <input type="email" placeholder="Votre email" required class="form-input flex-1">
+                    <button type="submit" class="btn bg-white text-[var(--accent-primary)] hover:bg-gray-100">S'abonner</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-[var(--bg-secondary)] border-t border-[var(--bg-tertiary)] py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="assets/logos/logo-noir.webp" alt="Logo AGEP" class="footer-logo h-12 mb-4">
+                    <p class="text-[var(--text-secondary)] text-sm">Transformer Kinshasa, Embellir Notre Avenir</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Accueil</a></li>
+                        <li><a href="about.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">À Propos</a></li>
+                        <li><a href="projects.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Projets</a></li>
+                        <li><a href="news.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Actualités</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Liens Utiles</h4>
+                    <ul class="space-y-2">
+                        <li><a href="gallery.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Galerie</a></li>
+                        <li><a href="partnerships.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Partenariats</a></li>
+                        <li><a href="contact.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-[var(--text-secondary)]">
+                        <li>📍 Kinshasa, RDC</li>
+                        <li>📞 +243 XXX XXX XXX</li>
+                        <li>✉️ contact@agep-kinshasa.cd</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-[var(--bg-tertiary)] pt-8 text-center text-sm text-[var(--text-tertiary)]">
+                <p>&copy; 2024 AGEP - Agence de Gestion et d'Embellissement des Espaces Publics. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+        
+        // Gestion de la pagination
+        const paginationButtons = document.querySelectorAll('.pagination-btn:not(.pagination-prev):not(.pagination-next)');
+        const prevBtn = document.querySelector('.pagination-prev');
+        const nextBtn = document.querySelector('.pagination-next');
+        let currentPage = 1;
+        
+        paginationButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (!btn.classList.contains('pagination-prev') && !btn.classList.contains('pagination-next')) {
+                    paginationButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentPage = parseInt(btn.textContent);
+                    updatePaginationState();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updateActivePage();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < 10) {
+                currentPage++;
+                updateActivePage();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+        
+        function updateActivePage() {
+            paginationButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (parseInt(btn.textContent) === currentPage) {
+                    btn.classList.add('active');
+                }
+            });
+            updatePaginationState();
+        }
+        
+        function updatePaginationState() {
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === 10;
+        }
+    </script>
+</body>
+</html>
+

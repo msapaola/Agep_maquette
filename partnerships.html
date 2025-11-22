@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Devenez partenaire de l'AGEP - Opportunités de collaboration pour transformer Kinshasa ensemble">
+    <title>Partenariats - AGEP Kinshasa</title>
+    
+    <link rel="stylesheet" href="assets/css/tailwind-compiled.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/webp" href="assets/logos/logo-couleur.webp">
+</head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)]">
+    
+    <div id="loader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center">
+        <img src="assets/logos/logo-anime.gif" alt="Logo AGEP animé" class="loader-logo">
+        <div class="loader-progress">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+    
+    <nav class="navbar fixed top-0 left-0 right-0 z-[1000] bg-[var(--bg-primary)] shadow-[var(--shadow-md)] transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/logos/logo-couleur.webp" alt="Logo AGEP" class="nav-logo h-12 w-auto">
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Accueil</a>
+                    <a href="about.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">À Propos</a>
+                    <a href="projects.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Projets</a>
+                    <a href="news.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Actualités</a>
+                    <a href="gallery.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Galerie</a>
+                    <a href="partnerships.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors active">Partenariats</a>
+                    <a href="contact.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="theme-toggle" aria-label="Basculer entre mode clair et sombre">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                    <button class="nav-toggle lg:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5" aria-label="Menu">
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="nav-menu hidden lg:hidden pb-4">
+                <div class="flex flex-col space-y-4 mt-4">
+                    <a href="index.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Accueil</a>
+                    <a href="about.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">À Propos</a>
+                    <a href="projects.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Projets</a>
+                    <a href="news.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Actualités</a>
+                    <a href="gallery.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Galerie</a>
+                    <a href="partnerships.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2 active">Partenariats</a>
+                    <a href="contact.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="pt-32 pb-16 bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in" data-aos="fade-up">Partenariats</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-90 fade-in" data-aos="fade-up" data-aos-delay="200">
+                Construisons ensemble l'avenir de Kinshasa
+            </p>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center mb-12 fade-in" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-6">Pourquoi Devenir Partenaire ?</h2>
+                <p class="text-xl text-[var(--text-secondary)]">
+                    Rejoignez-nous dans notre mission de transformation urbaine et bénéficiez d'opportunités uniques de collaboration et de développement.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="card text-center fade-in" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl mb-4">🌟</div>
+                    <h3 class="text-2xl font-bold mb-4">Visibilité Accrue</h3>
+                    <p class="text-[var(--text-secondary)]">Bénéficiez d'une exposition médiatique et d'une reconnaissance institutionnelle à travers nos projets d'envergure.</p>
+                </div>
+                <div class="card text-center fade-in" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <h3 class="text-2xl font-bold mb-4">Réseau Professionnel</h3>
+                    <p class="text-[var(--text-secondary)]">Accédez à un réseau élargi de partenaires institutionnels et privés pour développer vos opportunités.</p>
+                </div>
+                <div class="card text-center fade-in" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl mb-4">🏆</div>
+                    <h3 class="text-2xl font-bold mb-4">Impact Mesurable</h3>
+                    <p class="text-[var(--text-secondary)]">Contribuez directement au développement urbain et à l'amélioration de la qualité de vie de millions de citoyens.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section bg-[var(--bg-secondary)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-4xl md:text-5xl font-bold mb-12 fade-in" data-aos="fade-up">Types de Partenariats</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="card fade-in" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-4">Partenariat Stratégique</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">Collaboration à long terme pour des projets d'envergure avec engagement financier et technique.</p>
+                    <ul class="list-disc list-inside text-[var(--text-secondary)] space-y-2">
+                        <li>Projets de grande envergure</li>
+                        <li>Engagement pluriannuel</li>
+                        <li>Visibilité maximale</li>
+                        <li>Accès privilégié aux événements</li>
+                    </ul>
+                </div>
+                <div class="card fade-in" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-4">Partenariat Technique</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">Apport d'expertise et de compétences techniques pour la réalisation de projets spécifiques.</p>
+                    <ul class="list-disc list-inside text-[var(--text-secondary)] space-y-2">
+                        <li>Expertise technique</li>
+                        <li>Formation et transfert de compétences</li>
+                        <li>Innovation et R&D</li>
+                        <li>Reconnaissance professionnelle</li>
+                    </ul>
+                </div>
+                <div class="card fade-in" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold mb-4">Partenariat Financier</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">Soutien financier pour la réalisation de projets d'embellissement et d'aménagement.</p>
+                    <ul class="list-disc list-inside text-[var(--text-secondary)] space-y-2">
+                        <li>Sponsoring de projets</li>
+                        <li>Mécénat</li>
+                        <li>Déduction fiscale</li>
+                        <li>Impact social mesurable</li>
+                    </ul>
+                </div>
+                <div class="card fade-in" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-2xl font-bold mb-4">Partenariat Institutionnel</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">Collaboration avec des institutions publiques et organisations internationales.</p>
+                    <ul class="list-disc list-inside text-[var(--text-secondary)] space-y-2">
+                        <li>Organisations internationales</li>
+                        <li>Institutions publiques</li>
+                        <li>ONG et associations</li>
+                        <li>Coopération au développement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-4xl md:text-5xl font-bold mb-12 fade-in" data-aos="fade-up">Témoignages de Partenaires</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="card fade-in" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-[var(--accent-primary)] rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4">JD</div>
+                        <div>
+                            <h4 class="font-bold">Jean Dupont</h4>
+                            <p class="text-sm text-[var(--text-tertiary)]">Directeur, Entreprise Partenaire</p>
+                        </div>
+                    </div>
+                    <p class="text-[var(--text-secondary)] italic">"Notre collaboration avec l'AGEP a permis de réaliser des projets d'envergure qui transforment véritablement la ville. Une agence professionnelle et visionnaire."</p>
+                </div>
+                <div class="card fade-in" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-[var(--accent-secondary)] rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4">MB</div>
+                        <div>
+                            <h4 class="font-bold">Marie Bemba</h4>
+                            <p class="text-sm text-[var(--text-tertiary)]">Responsable, Organisation Internationale</p>
+                        </div>
+                    </div>
+                    <p class="text-[var(--text-secondary)] italic">"L'AGEP incarne l'excellence dans la gestion des espaces publics. Leur approche innovante et leur engagement sont remarquables."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section bg-[var(--bg-secondary)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="section-title text-4xl md:text-5xl font-bold mb-12 fade-in" data-aos="fade-up">Demande de Partenariat</h2>
+                <form class="card fade-in" data-aos="fade-up" data-aos-delay="200">
+                    <div class="form-group">
+                        <label class="form-label">Nom de l'organisation *</label>
+                        <input type="text" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Type de partenariat *</label>
+                        <select class="form-select" required>
+                            <option value="">Sélectionnez un type</option>
+                            <option value="strategique">Partenariat Stratégique</option>
+                            <option value="technique">Partenariat Technique</option>
+                            <option value="financier">Partenariat Financier</option>
+                            <option value="institutionnel">Partenariat Institutionnel</option>
+                        </select>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="form-group">
+                            <label class="form-label">Nom du contact *</label>
+                            <input type="text" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Fonction *</label>
+                            <input type="text" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="form-group">
+                            <label class="form-label">Email *</label>
+                            <input type="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Téléphone *</label>
+                            <input type="tel" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message *</label>
+                        <textarea class="form-textarea" rows="5" required placeholder="Décrivez votre projet de partenariat..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Envoyer la Demande</button>
+                </form>
+                
+                <div class="mt-8 text-center">
+                    <p class="text-[var(--text-secondary)] mb-4">Téléchargez notre dossier de partenariat pour plus d'informations</p>
+                    <a href="#" class="btn btn-secondary inline-block" download>📄 Télécharger le Dossier (PDF)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-[var(--bg-secondary)] border-t border-[var(--bg-tertiary)] py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="assets/logos/logo-noir.webp" alt="Logo AGEP" class="footer-logo h-12 mb-4">
+                    <p class="text-[var(--text-secondary)] text-sm">Transformer Kinshasa, Embellir Notre Avenir</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Accueil</a></li>
+                        <li><a href="about.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">À Propos</a></li>
+                        <li><a href="projects.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Projets</a></li>
+                        <li><a href="news.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Actualités</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Liens Utiles</h4>
+                    <ul class="space-y-2">
+                        <li><a href="gallery.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Galerie</a></li>
+                        <li><a href="partnerships.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Partenariats</a></li>
+                        <li><a href="contact.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-[var(--text-secondary)]">
+                        <li>📍 Kinshasa, RDC</li>
+                        <li>📞 +243 XXX XXX XXX</li>
+                        <li>✉️ contact@agep-kinshasa.cd</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-[var(--bg-tertiary)] pt-8 text-center text-sm text-[var(--text-tertiary)]">
+                <p>&copy; 2024 AGEP - Agence de Gestion et d'Embellissement des Espaces Publics. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+    </script>
+</body>
+</html>
+

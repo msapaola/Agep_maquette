@@ -1,0 +1,604 @@
+/* === STYLES PERSONNALISÉS AGEP - COMPLÉMENTAIRES À TAILWIND === */
+/* Version adaptée pour Drupal - Évite les conflits avec les styles Drupal */
+
+/* === IMPORTATION DES POLICES === */
+@import url('https://fonts.googleapis.com/css2?family=Cooper+Hewitt:wght@400;700&family=Poppins:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+/* === VARIABLES DE POLICES === */
+:root {
+    --font-primary: 'Cooper Hewitt', sans-serif;
+    --font-secondary: 'Poppins', sans-serif;
+    --font-decorative: 'Great Vibes', cursive;
+}
+
+/* === RÉINITIALISATION SÉLECTIVE (pas globale pour éviter les conflits Drupal) === */
+/* On ne réinitialise que les éléments spécifiques au thème AGEP */
+.dialog-off-canvas-main-canvas,
+.dialog-off-canvas-main-canvas * {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Styles pour le body - spécifiques au thème AGEP */
+body {
+    font-family: var(--font-primary) !important;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    overflow-x: hidden;
+}
+
+/* === TYPOGRAPHIE === */
+/* Utiliser des sélecteurs plus spécifiques pour éviter les conflits */
+.dialog-off-canvas-main-canvas h1,
+.dialog-off-canvas-main-canvas h2,
+.dialog-off-canvas-main-canvas h3,
+.dialog-off-canvas-main-canvas h4,
+.dialog-off-canvas-main-canvas h5,
+.dialog-off-canvas-main-canvas h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.dialog-off-canvas-main-canvas h1 {
+    font-family: var(--font-primary);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.dialog-off-canvas-main-canvas h2 {
+    font-family: var(--font-primary);
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.dialog-off-canvas-main-canvas h3 {
+    font-family: var(--font-secondary);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+}
+
+.dialog-off-canvas-main-canvas h4 {
+    font-family: var(--font-secondary);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 600;
+}
+
+.dialog-off-canvas-main-canvas p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.dialog-off-canvas-main-canvas a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.dialog-off-canvas-main-canvas a:hover {
+    color: var(--accent-secondary);
+}
+
+/* === LOADER === */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity var(--transition-slow), visibility var(--transition-slow);
+}
+
+#loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.loader-progress {
+    width: 300px;
+    height: 4px;
+    background-color: var(--bg-tertiary);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loader-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    width: 0%;
+    animation: progress 2.5s ease-in-out forwards;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+@keyframes progress {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* === NAVIGATION === */
+/* Navbar - position fixe commentée pour Drupal (géré par le template) */
+.navbar {
+    position: fixed;
+    /* top: 0; */ /* Commenté pour Drupal - peut être géré par le template */
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--bg-primary);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.navbar.scrolled {
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .navbar.scrolled {
+    background-color: rgba(32, 35, 36, 0.95);
+}
+
+.nav-logo {
+    height: 80px;
+    width: auto;
+    transition: transform var(--transition-base);
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Menu Mobile */
+.nav-toggle {
+    position: relative;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.nav-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: var(--bg-primary);
+    border-top: 1px solid var(--bg-tertiary);
+}
+
+.nav-menu.active {
+    max-height: 500px;
+    display: block !important;
+}
+
+/* === BOUTON TOGGLE THÈME === */
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    color: var(--text-primary);
+}
+
+.theme-toggle:hover {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+    transform: rotate(180deg);
+}
+
+.theme-toggle svg,
+.theme-toggle i {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+}
+
+/* === SECTIONS === */
+.section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 2px;
+}
+
+/* === CARDS === */
+.card {
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    border: 1px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-primary);
+}
+
+/* Pour les cards avec effet tilt, laisser JavaScript gérer le transform */
+.card[data-tilt]:hover {
+    /* Le transform est géré par JavaScript, mais on garde les autres effets */
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-primary);
+}
+
+/* === BOUTONS === */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-secondary);
+    color: var(--text-inverse) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-primary);
+    border: 2px solid var(--accent-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+/* === FORMULAIRES === */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: var(--font-secondary);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--bg-tertiary);
+    border-radius: 8px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: all var(--transition-base);
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(28, 58, 181, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* === UTILITAIRES === */
+.text-gradient {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: var(--font-decorative);
+    font-weight: 400;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: var(--font-secondary);
+}
+
+.badge-new {
+    background-color: var(--accent-danger);
+    color: var(--text-inverse);
+    animation: pulse-badge 2s ease-in-out infinite;
+}
+
+@keyframes pulse-badge {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* === ANIMATIONS AU SCROLL === */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === MODAL === */
+.modal {
+    display: none;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-overlay {
+    cursor: pointer;
+}
+
+.modal-content {
+    position: relative;
+    z-index: 10;
+}
+
+/* === SPINNER === */
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* === FIELD ERROR === */
+.field-error {
+    display: block;
+    color: var(--accent-danger);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.form-input.error,
+.form-textarea.error,
+.form-select.error {
+    border-color: var(--accent-danger);
+}
+
+/* === BOUTON RETOUR EN HAUT === */
+#scrollToTop {
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-lg);
+}
+
+#scrollToTop:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(61, 149, 201, 0.4);
+}
+
+#scrollToTop:active {
+    transform: translateY(-1px);
+}
+
+
+/* === AMÉLIORATIONS GÉNÉRALES === */
+.card {
+    transition: all var(--transition-base);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .section {
+        padding: 3rem 0;
+    }
+    
+    .nav-logo {
+        height: 40px;
+    }
+    
+    .loader-logo {
+        width: 150px;
+    }
+    
+    .loader-progress {
+        width: 250px;
+    }
+    
+    .masonry-grid {
+        column-count: 1 !important;
+    }
+    
+    .gallery-grid {
+        column-count: 1 !important;
+    }
+}
+
+/* === PAGINATION === */
+.pagination-btn {
+    min-width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--bg-tertiary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    font-weight: 500;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.pagination-btn.active {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+    border-color: var(--accent-primary);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* === ACCESSIBILITÉ === */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus visible pour accessibilité */
+*:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* === STYLES SPÉCIFIQUES DRUPAL === */
+/* Surcharge des styles Drupal pour éviter les conflits */
+.dialog-off-canvas-main-canvas .visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border-width: 0 !important;
+}
+
+/* Assurer que les styles Tailwind fonctionnent dans Drupal */
+.dialog-off-canvas-main-canvas {
+    font-family: var(--font-primary);
+}
+
+/* Styles pour les régions Drupal */
+.region {
+    margin-bottom: 2rem;
+}
+
+/* Éviter les conflits avec les styles de formulaire Drupal */
+.dialog-off-canvas-main-canvas .form-item {
+    margin-bottom: 1.5rem;
+}
+
+.dialog-off-canvas-main-canvas input[type="text"],
+.dialog-off-canvas-main-canvas input[type="email"],
+.dialog-off-canvas-main-canvas input[type="tel"],
+.dialog-off-canvas-main-canvas textarea,
+.dialog-off-canvas-main-canvas select {
+    font-family: var(--font-primary);
+}

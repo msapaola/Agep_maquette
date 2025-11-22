@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+
+<section class="section bg-[var(--bg-secondary)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-4 fade-in" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] rounded-full text-sm font-semibold mb-4">Actualités</span>
+            </div>
+            <h2 class="section-title text-4xl md:text-5xl font-bold mb-12 text-center fade-in" data-aos="fade-up">Actualités Récentes</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                {% for row in rows %}
+                    {{- row.content -}}
+                {% endfor %}
+            </div>
+            <div class="text-center mt-12">
+                <a href="/actualites" class="btn btn-primary">
+                    Voir Toutes les Actualités
+                </a>
+            </div>
+        </div>
+ </section>
+    
+

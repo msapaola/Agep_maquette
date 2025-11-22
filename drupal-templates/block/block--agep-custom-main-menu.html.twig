@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Template pour le bloc du menu principal (agep_custom_main_menu)
+ * Ce template évite la double balise <nav> en ne générant que le contenu du menu
+ * sans les wrappers par défaut de Drupal
+ *
+ * Variables disponibles:
+ * - content: Le contenu du bloc (le menu)
+ * - attributes: Attributs HTML pour le conteneur
+ * - label: Le label du bloc (si affiché)
+ * - title_prefix: Titre préfixe
+ * - title_suffix: Titre suffixe
+ */
+#}
+
+{#
+  IMPORTANT : Ce template ne génère PAS de balise <nav> ni de wrapper.
+  Il affiche directement le contenu du menu (les divs générés par menu--main.html.twig).
+  
+  Pour supprimer complètement la balise <nav> générée par Drupal, vous devez
+  ajouter le code du fichier theme-hook-example.php dans votre fichier .theme
+#}
+
+{#
+  Titre caché pour l'accessibilité (si nécessaire)
+#}
+{{ title_prefix }}
+{% if label %}
+  <h2{{ title_attributes.addClass('visually-hidden') }}>{{ label }}</h2>
+{% endif %}
+{{ title_suffix }}
+
+{#
+  On affiche directement le contenu du menu sans aucun wrapper HTML
+  Le contenu contient déjà les divs générés par menu--main.html.twig :
+  - <div class="hidden lg:flex items-center space-x-8"> (menu desktop)
+  - <div class="nav-menu hidden lg:hidden pb-4"> (menu mobile)
+#}
+{{ content }}
+

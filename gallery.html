@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galerie multimédia de l'AGEP - Photos et vidéos de nos projets et réalisations">
+    <title>Galerie - AGEP Kinshasa</title>
+    
+    <link rel="stylesheet" href="assets/css/tailwind-compiled.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/webp" href="assets/logos/logo-couleur.webp">
+    
+    <style>
+        .gallery-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .gallery-grid { column-count: 2; }
+        }
+        @media (min-width: 1024px) {
+            .gallery-grid { column-count: 3; }
+        }
+        @media (min-width: 1280px) {
+            .gallery-grid { column-count: 4; }
+        }
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 12px;
+        }
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        .album-card {
+            transition: all 0.3s ease;
+        }
+        .album-card:hover {
+            transform: translateY(-8px);
+        }
+        .album-cover {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .album-cover img {
+            transition: transform 0.5s ease;
+        }
+        .album-card:hover .album-cover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)]">
+    
+    <div id="loader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center">
+        <img src="assets/logos/logo-anime.gif" alt="Logo AGEP animé" class="loader-logo">
+        <div class="loader-progress">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+    
+    <nav class="navbar fixed top-0 left-0 right-0 z-[1000] bg-[var(--bg-primary)] shadow-[var(--shadow-md)] transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/logos/logo-couleur.webp" alt="Logo AGEP" class="nav-logo h-12 w-auto">
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Accueil</a>
+                    <a href="about.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">À Propos</a>
+                    <a href="projects.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Projets</a>
+                    <a href="news.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Actualités</a>
+                    <a href="gallery.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors active">Galerie</a>
+                    <a href="partnerships.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Partenariats</a>
+                    <a href="contact.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="theme-toggle" aria-label="Basculer entre mode clair et sombre">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                    <button class="nav-toggle lg:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5" aria-label="Menu">
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="nav-menu hidden lg:hidden pb-4">
+                <div class="flex flex-col space-y-4 mt-4">
+                    <a href="index.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Accueil</a>
+                    <a href="about.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">À Propos</a>
+                    <a href="projects.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Projets</a>
+                    <a href="news.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Actualités</a>
+                    <a href="gallery.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2 active">Galerie</a>
+                    <a href="partnerships.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Partenariats</a>
+                    <a href="contact.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Breadcrumb -->
+    <section class="pt-24 pb-4 bg-[var(--bg-secondary)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center space-x-2 text-sm fade-in" data-aos="fade-up">
+                <a href="index.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    Accueil
+                </a>
+                <span class="text-[var(--text-tertiary)]">/</span>
+                <span class="text-[var(--text-primary)] font-semibold">Galerie</span>
+            </nav>
+        </div>
+    </section>
+    
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-24 bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white overflow-hidden">
+        <!-- Image de fond avec overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&h=1080&fit=crop" alt="Galerie" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-br from-[var(--accent-primary)]/90 to-[var(--accent-secondary)]/90"></div>
+        </div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 fade-in" data-aos="fade-up">Galerie Multimédia</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-95 fade-in" data-aos="fade-up" data-aos-delay="200">
+                Découvrez nos réalisations en images et vidéos
+            </p>
+        </div>
+    </section>
+    
+    <!-- Albums Overview -->
+    <section class="section">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] rounded-full text-sm font-semibold mb-4">Nos Albums</span>
+                <h2 class="text-4xl md:text-5xl font-bold">Explorez Nos Galeries</h2>
+            </div>
+            
+            <!-- Grille d'albums -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Album 1: Boulevard Lumumba -->
+                <a href="gallery-single.html?album=boulevard-lumumba" class="album-card card overflow-hidden cursor-pointer fade-in block" data-aos="fade-up" data-aos-delay="100">
+                    <div class="album-cover h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop" alt="Boulevard Lumumba" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[var(--text-primary)]">Boulevard Lumumba</h3>
+                        <div class="flex items-center gap-2 text-[var(--accent-primary)] mt-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="font-semibold">4 photos</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Album 2: Place de la Victoire -->
+                <a href="gallery-single.html?album=place-victoire" class="album-card card overflow-hidden cursor-pointer fade-in block" data-aos="fade-up" data-aos-delay="200">
+                    <div class="album-cover h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&h=600&fit=crop" alt="Place de la Victoire" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[var(--text-primary)]">Place de la Victoire</h3>
+                        <div class="flex items-center gap-2 text-[var(--accent-primary)] mt-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="font-semibold">2 photos</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Album 3: Parc de la Gombe -->
+                <a href="gallery-single.html?album=parc-gombe" class="album-card card overflow-hidden cursor-pointer fade-in block" data-aos="fade-up" data-aos-delay="300">
+                    <div class="album-cover h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop" alt="Parc de la Gombe" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[var(--text-primary)]">Parc de la Gombe</h3>
+                        <div class="flex items-center gap-2 text-[var(--accent-primary)] mt-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="font-semibold">2 photos</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Album 4: Rond-point Ngaliema -->
+                <a href="gallery-single.html?album=rond-point" class="album-card card overflow-hidden cursor-pointer fade-in block" data-aos="fade-up" data-aos-delay="400">
+                    <div class="album-cover h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop" alt="Rond-point Ngaliema" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[var(--text-primary)]">Rond-point Ngaliema</h3>
+                        <div class="flex items-center gap-2 text-[var(--accent-primary)] mt-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="font-semibold">2 photos</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Album 5: Événements -->
+                <a href="gallery-single.html?album=evenements" class="album-card card overflow-hidden cursor-pointer fade-in block" data-aos="fade-up" data-aos-delay="500">
+                    <div class="album-cover h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&h=600&fit=crop" alt="Événements" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[var(--text-primary)]">Événements</h3>
+                        <div class="flex items-center gap-2 text-[var(--accent-primary)] mt-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="font-semibold">2 photos</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-[var(--bg-secondary)] border-t border-[var(--bg-tertiary)] py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="assets/logos/logo-noir.webp" alt="Logo AGEP" class="footer-logo h-12 mb-4">
+                    <p class="text-[var(--text-secondary)] text-sm">Transformer Kinshasa, Embellir Notre Avenir</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Accueil</a></li>
+                        <li><a href="about.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">À Propos</a></li>
+                        <li><a href="projects.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Projets</a></li>
+                        <li><a href="news.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Actualités</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Liens Utiles</h4>
+                    <ul class="space-y-2">
+                        <li><a href="gallery.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Galerie</a></li>
+                        <li><a href="partnerships.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Partenariats</a></li>
+                        <li><a href="contact.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-3 text-sm text-[var(--text-secondary)]">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-[var(--accent-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Kinshasa, RDC
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-[var(--accent-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            +243 XXX XXX XXX
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-[var(--accent-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            contact@agep-kinshasa.cd
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-[var(--bg-tertiary)] pt-8 text-center text-sm text-[var(--text-tertiary)]">
+                <p>&copy; 2024 AGEP - Agence de Gestion et d'Embellissement des Espaces Publics. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bouton Retour en Haut -->
+    <button id="scrollToTop" class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-[var(--accent-primary)] text-white rounded-full shadow-lg hover:bg-[var(--accent-secondary)] transition-all duration-300 opacity-0 pointer-events-none flex items-center justify-center" aria-label="Retour en haut">
+        ↑
+    </button>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+        
+        // Bouton Retour en Haut
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        if (scrollToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    scrollToTopBtn.classList.add('opacity-100');
+                } else {
+                    scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                    scrollToTopBtn.classList.remove('opacity-100');
+                }
+            });
+            
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
+</body>
+</html>

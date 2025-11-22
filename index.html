@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agence de Gestion et d'Embellissement des Espaces Publics de Kinshasa - Transformer Kinshasa, Embellir Notre Avenir">
+    <meta name="keywords" content="AGEP, Kinshasa, espaces publics, embellissement, aménagement urbain, RDC">
+    <meta name="author" content="AGEP Kinshasa">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://agep-kinshasa.cd/">
+    <meta property="og:title" content="AGEP - Agence de Gestion et d'Embellissement des Espaces Publics">
+    <meta property="og:description" content="Transformer Kinshasa, Embellir Notre Avenir">
+    <meta property="og:image" content="assets/logos/logo-couleur.webp">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://agep-kinshasa.cd/">
+    <meta property="twitter:title" content="AGEP - Agence de Gestion et d'Embellissement des Espaces Publics">
+    <meta property="twitter:description" content="Transformer Kinshasa, Embellir Notre Avenir">
+    <meta property="twitter:image" content="assets/logos/logo-couleur.webp">
+    
+    <title>AGEP - Transformer Kinshasa, Embellir Notre Avenir</title>
+    
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="assets/css/tailwind-compiled.css">
+    
+    <!-- CSS Personnalisé -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/fontawesome/css/all.min.css">
+    
+    <!-- Bibliothèques d'Animation -->
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"> -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/glightbox.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="assets/logos/logo-couleur.webp">
+</head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)]">
+    
+    <!-- === LOADER === -->
+    <div id="loader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center">
+        <img src="assets/logos/logo-anime.gif" alt="Logo AGEP animé" class="loader-logo">
+        <div class="loader-progress">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+    
+    <!-- === NAVIGATION === -->
+    <nav class="navbar fixed top-0 left-0 right-0 z-[1000] bg-[var(--bg-primary)] shadow-[var(--shadow-md)] transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/logos/logo-couleur.webp" alt="Logo AGEP" class="nav-logo h-24 w-auto">
+                </a>
+                
+                <!-- Menu Desktop -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors active">Accueil</a>
+                    <a href="about.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">À Propos</a>
+                    <a href="projects.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Projets</a>
+                    <a href="news.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Actualités</a>
+                    <a href="gallery.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Galerie</a>
+                    <a href="partnerships.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Partenariats</a>
+                    <a href="contact.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium transition-colors">Contact</a>
+                </div>
+                
+                <!-- Toggle Thème et Menu Mobile -->
+                <div class="flex items-center space-x-4">
+                    <!-- Bouton Toggle Thème -->
+                    <button class="theme-toggle" aria-label="Basculer entre mode clair et sombre">
+                        <i class="fa-solid fa-circle-half-stroke text-2xl"></i>
+                    </button>
+                    
+                    <!-- Bouton Menu Mobile -->
+                    <button class="nav-toggle lg:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5" aria-label="Menu">
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Menu Mobile -->
+            <div class="nav-menu hidden lg:hidden pb-4">
+                <div class="flex flex-col space-y-4 mt-4">
+                    <a href="index.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2 active">Accueil</a>
+                    <a href="about.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">À Propos</a>
+                    <a href="projects.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Projets</a>
+                    <a href="news.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Actualités</a>
+                    <a href="gallery.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Galerie</a>
+                    <a href="partnerships.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Partenariats</a>
+                    <a href="contact.html" class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-primary)] font-medium py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- === HERO SECTION === -->
+    <section class="hero relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Animation de particules en arrière-plan -->
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
+        
+        <!-- Contenu Hero -->
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl mb-6 fade-in" data-aos="fade-up">
+                <span class="text-gradient">Transformer Kinshasa</span><br>
+                <span class="text-[var(--text-primary)] font-bold">Embellir Notre Avenir</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-[var(--text-secondary)] mb-8 max-w-3xl mx-auto fade-in" data-aos="fade-up" data-aos-delay="200">
+                L'Agence de Gestion et d'Embellissement des Espaces Publics œuvre pour une capitale moderne, durable et accueillante.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in" data-aos="fade-up" data-aos-delay="400">
+                <a href="partnerships.html" class="btn btn-primary text-lg px-8 py-4 relative overflow-hidden group">
+                    <span class="relative z-10">Devenez Notre Partenaire</span>
+                    <span class="absolute inset-0 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </a>
+                <a href="projects.html" class="btn btn-secondary text-lg px-8 py-4 relative overflow-hidden group">
+                    <span class="relative z-10">Découvrir Nos Projets</span>
+                    <span class="absolute inset-0 bg-[var(--accent-primary)] opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- === SECTION MISSION === -->
+    <section class="section bg-[var(--bg-secondary)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-4 fade-in" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] rounded-full text-sm font-semibold mb-4">Notre Mission</span>
+            </div>
+            <h2 class="section-title text-4xl md:text-5xl font-bold mb-12 text-center fade-in" data-aos="fade-up">Transformer Kinshasa Ensemble</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card text-center group hover:shadow-xl transition-all duration-300 fade-in" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-brush text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-[var(--text-primary)]">Embellissement</h3>
+                    <p class="text-[var(--text-secondary)] leading-relaxed">Transformer les espaces publics de Kinshasa en lieux de vie agréables et sécurisés pour tous les citoyens.</p>
+                    <div class="mt-6 text-2xl font-bold text-[var(--accent-primary)]">50+</div>
+                    <div class="text-sm text-[var(--text-tertiary)]">Projets réalisés</div>
+                </div>
+                <div class="card text-center group hover:shadow-xl transition-all duration-300 fade-in" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[var(--accent-secondary)] to-[var(--accent-primary)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-city text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-[var(--text-primary)]">Aménagement</h3>
+                    <p class="text-[var(--text-secondary)] leading-relaxed">Créer des infrastructures modernes et durables qui répondent aux besoins de la population.</p>
+                    <div class="mt-6 text-2xl font-bold text-[var(--accent-primary)]">100+</div>
+                    <div class="text-sm text-[var(--text-tertiary)]">Espaces aménagés</div>
+                </div>
+                <div class="card text-center group hover:shadow-xl transition-all duration-300 fade-in" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-handshake-angle text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-[var(--text-primary)]">Partenariats</h3>
+                    <p class="text-[var(--text-secondary)] leading-relaxed">Développer des collaborations stratégiques pour un développement urbain harmonieux et inclusif.</p>
+                    <div class="mt-6 text-2xl font-bold text-[var(--accent-primary)]">25+</div>
+                    <div class="text-sm text-[var(--text-tertiary)]">Partenaires actifs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- === PROJETS PHARES === -->
+    <section class="section">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-4 fade-in" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] rounded-full text-sm font-semibold mb-4">Nos Réalisations</span>
+            </div>
+            <h2 class="section-title text-4xl md:text-5xl font-bold mb-12 text-center fade-in" data-aos="fade-up">Projets Phares</h2>
+            <div class="swiper projects-swiper fade-in" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <!-- Projet 1 -->
+                    <div class="swiper-slide">
+                        <div class="card overflow-hidden group hover:shadow-2xl transition-all duration-300" data-tilt>
+                            <div class="relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop" alt="Boulevard Lumumba" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <span class="absolute top-4 left-4 bg-[var(--accent-success)] text-white px-3 py-1 rounded-full text-xs font-bold uppercase">Terminé</span>
+                                <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="flex gap-4 text-sm items-center">
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-solid fa-ruler-combined text-white text-sm"></i>
+                                            2.5 km
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-solid fa-coins text-white text-sm"></i>
+                                            $2.5M
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-regular fa-clock text-white text-sm"></i>
+                                            8 mois
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-2 text-[var(--text-primary)]">Boulevard Lumumba</h3>
+                                <p class="text-[var(--text-secondary)] mb-4 leading-relaxed">Réhabilitation et embellissement de 2,5 km d'avenue principale avec éclairage moderne et mobilier urbain design.</p>
+                                <a href="project-single.html?project=boulevard-lumumba" class="btn btn-secondary">
+                                    En savoir plus
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Projet 2 -->
+                    <div class="swiper-slide">
+                        <div class="card overflow-hidden group hover:shadow-2xl transition-all duration-300" data-tilt>
+                            <div class="relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&h=600&fit=crop" alt="Place de la Victoire" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <span class="absolute top-4 left-4 bg-[var(--accent-success)] text-white px-3 py-1 rounded-full text-xs font-bold uppercase">Terminé</span>
+                                <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="flex gap-4 text-sm items-center">
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-solid fa-ruler-combined text-white text-sm"></i>
+                                            0.5 ha
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-solid fa-coins text-white text-sm"></i>
+                                            $1.2M
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-regular fa-clock text-white text-sm"></i>
+                                            6 mois
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-2 text-[var(--text-primary)]">Place de la Victoire</h3>
+                                <p class="text-[var(--text-secondary)] mb-4 leading-relaxed">Aménagement paysager et installation d'un système d'éclairage moderne pour créer un espace de rassemblement.</p>
+                                <a href="project-single.html?project=place-victoire" class="btn btn-secondary">
+                                    En savoir plus
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Projet 3 -->
+                    <div class="swiper-slide">
+                        <div class="card overflow-hidden group hover:shadow-2xl transition-all duration-300" data-tilt>
+                            <div class="relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop" alt="Parc de la Gombe" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <span class="absolute top-4 left-4 bg-[var(--accent-warning)] text-white px-3 py-1 rounded-full text-xs font-bold uppercase">En Cours</span>
+                                <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="flex gap-4 text-sm items-center">
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-solid fa-ruler-combined text-white text-sm"></i>
+                                            5 ha
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-solid fa-coins text-white text-sm"></i>
+                                            $3.5M
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-regular fa-clock text-white text-sm"></i>
+                                            12 mois
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-2 text-[var(--text-primary)]">Parc de la Gombe</h3>
+                                <p class="text-[var(--text-secondary)] mb-4 leading-relaxed">Création d'un espace vert communautaire de 5 hectares avec aires de jeux et sentiers pédestres.</p>
+                                <a href="project-single.html?project=parc-gombe" class="btn btn-secondary">
+                                    En savoir plus
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Projet 4 -->
+                    <div class="swiper-slide">
+                        <div class="card overflow-hidden group hover:shadow-2xl transition-all duration-300" data-tilt>
+                            <div class="relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&h=600&fit=crop" alt="Rond-point Ngaliema" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <span class="absolute top-4 left-4 bg-[var(--accent-success)] text-white px-3 py-1 rounded-full text-xs font-bold uppercase">Terminé</span>
+                                <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="flex gap-4 text-sm items-center">
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-solid fa-ruler-combined text-white text-sm"></i>
+                                            1 ha
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-solid fa-coins text-white text-sm"></i>
+                                            $800K
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-regular fa-clock text-white text-sm"></i>
+                                            4 mois
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-2 text-[var(--text-primary)]">Rond-point Ngaliema</h3>
+                                <p class="text-[var(--text-secondary)] mb-4 leading-relaxed">Installation d'un monument artistique et d'une fontaine lumineuse pour embellir ce carrefour stratégique.</p>
+                                <a href="project-single.html?project=rond-point-ngaliema" class="btn btn-secondary">
+                                    En savoir plus
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- === ACTUALITÉS RÉCENTES === -->
+    <section class="section bg-[var(--bg-secondary)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-4 fade-in" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] rounded-full text-sm font-semibold mb-4">Actualités</span>
+            </div>
+            <h2 class="section-title text-4xl md:text-5xl font-bold mb-12 text-center fade-in" data-aos="fade-up">Actualités Récentes</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Actualité 1 -->
+                <article class="card group hover:shadow-2xl transition-all duration-300 overflow-hidden fade-in" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop" alt="Inauguration" class="w-full h-48 object-cover rounded-lg group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+                        <span class="badge badge-new absolute top-4 right-4">Nouveau</span>
+                        <span class="absolute top-4 left-4 bg-[var(--accent-primary)] text-white px-3 py-1 rounded-full text-xs font-semibold">Projets</span>
+                    </div>
+                    <div class="p-2">
+                        <time class="text-sm text-[var(--text-tertiary)] flex items-center gap-2">
+                            <i class="fa-regular fa-calendar text-[var(--accent-primary)]"></i>
+                            15 Janvier 2024
+                        </time>
+                        <h3 class="text-xl font-bold mt-3 mb-3 text-[var(--text-primary)] group-hover:text-[var(--accent-primary)] transition-colors">Inauguration du Boulevard Lumumba</h3>
+                        <p class="text-[var(--text-secondary)] mb-4 leading-relaxed">Cérémonie officielle marquant l'achèvement de la réhabilitation du Boulevard Lumumba en présence des autorités.</p>
+                        <a href="article.html" class="text-[var(--accent-primary)] font-semibold hover:underline">
+                            Lire plus
+                        </a>
+                    </div>
+                </article>
+                <!-- Actualité 2 -->
+                <article class="card group hover:shadow-2xl transition-all duration-300 overflow-hidden fade-in" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=400&fit=crop" alt="Partenariat" class="w-full h-48 object-cover rounded-lg group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+                        <span class="absolute top-4 left-4 bg-[var(--accent-secondary)] text-white px-3 py-1 rounded-full text-xs font-semibold">Partenariats</span>
+                    </div>
+                    <div class="p-2">
+                        <time class="text-sm text-[var(--text-tertiary)] flex items-center gap-2">
+                            <i class="fa-regular fa-calendar text-[var(--accent-primary)]"></i>
+                            10 Janvier 2024
+                        </time>
+                        <h3 class="text-xl font-bold mt-3 mb-3 text-[var(--text-primary)] group-hover:text-[var(--accent-primary)] transition-colors">Nouveau Partenariat Stratégique</h3>
+                        <p class="text-[var(--text-secondary)] mb-4 leading-relaxed">Signature d'un accord de partenariat avec une entreprise internationale pour le développement urbain durable.</p>
+                        <a href="article.html" class="text-[var(--accent-primary)] font-semibold hover:underline">
+                            Lire plus
+                        </a>
+                    </div>
+                </article>
+                <!-- Actualité 3 -->
+                <article class="card group hover:shadow-2xl transition-all duration-300 overflow-hidden fade-in" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop" alt="Projet" class="w-full h-48 object-cover rounded-lg group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+                        <span class="absolute top-4 left-4 bg-[var(--accent-primary)] text-white px-3 py-1 rounded-full text-xs font-semibold">Projets</span>
+                    </div>
+                    <div class="p-2">
+                        <time class="text-sm text-[var(--text-tertiary)] flex items-center gap-2">
+                            <i class="fa-regular fa-calendar text-[var(--accent-primary)]"></i>
+                            5 Janvier 2024
+                        </time>
+                        <h3 class="text-xl font-bold mt-3 mb-3 text-[var(--text-primary)] group-hover:text-[var(--accent-primary)] transition-colors">Lancement du Parc de la Gombe</h3>
+                        <p class="text-[var(--text-secondary)] mb-4 leading-relaxed">Début des travaux de création du nouveau parc communautaire dans le quartier de la Gombe.</p>
+                        <a href="article.html" class="text-[var(--accent-primary)] font-semibold hover:underline">
+                            Lire plus
+                        </a>
+                    </div>
+                </article>
+            </div>
+            <div class="text-center mt-12">
+                <a href="news.html" class="btn btn-primary">
+                    Voir Toutes les Actualités
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- === PARTENAIRES === -->
+    <section class="section">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-4 fade-in" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] rounded-full text-sm font-semibold mb-4">Collaborations</span>
+            </div>
+            <h2 class="section-title text-4xl md:text-5xl font-bold mb-12 text-center fade-in" data-aos="fade-up">Nos Partenaires</h2>
+            <div class="swiper partners-swiper mb-12 fade-in" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide flex items-center justify-center">
+                        <div class="bg-[var(--bg-secondary)] p-8 rounded-xl h-32 flex items-center justify-center border-2 border-[var(--bg-tertiary)] hover:border-[var(--accent-primary)] transition-all duration-300 grayscale hover:grayscale-0 opacity-60 hover:opacity-100">
+                            <span class="text-xl font-bold text-[var(--text-primary)]">Partenaire 1</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide flex items-center justify-center">
+                        <div class="bg-[var(--bg-secondary)] p-8 rounded-xl h-32 flex items-center justify-center border-2 border-[var(--bg-tertiary)] hover:border-[var(--accent-primary)] transition-all duration-300 grayscale hover:grayscale-0 opacity-60 hover:opacity-100">
+                            <span class="text-xl font-bold text-[var(--text-primary)]">Partenaire 2</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide flex items-center justify-center">
+                        <div class="bg-[var(--bg-secondary)] p-8 rounded-xl h-32 flex items-center justify-center border-2 border-[var(--bg-tertiary)] hover:border-[var(--accent-primary)] transition-all duration-300 grayscale hover:grayscale-0 opacity-60 hover:opacity-100">
+                            <span class="text-xl font-bold text-[var(--text-primary)]">Partenaire 3</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide flex items-center justify-center">
+                        <div class="bg-[var(--bg-secondary)] p-8 rounded-xl h-32 flex items-center justify-center border-2 border-[var(--bg-tertiary)] hover:border-[var(--accent-primary)] transition-all duration-300 grayscale hover:grayscale-0 opacity-60 hover:opacity-100">
+                            <span class="text-xl font-bold text-[var(--text-primary)]">Partenaire 4</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide flex items-center justify-center">
+                        <div class="bg-[var(--bg-secondary)] p-8 rounded-xl h-32 flex items-center justify-center border-2 border-[var(--bg-tertiary)] hover:border-[var(--accent-primary)] transition-all duration-300 grayscale hover:grayscale-0 opacity-60 hover:opacity-100">
+                            <span class="text-xl font-bold text-[var(--text-primary)]">Partenaire 5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Témoignages -->
+            <div class="grid md:grid-cols-2 gap-8 mt-12">
+                <div class="card group hover:shadow-xl transition-all duration-300 fade-in" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">JD</div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-lg text-[var(--text-primary)]">Jean Dupont</h4>
+                            <p class="text-sm text-[var(--text-tertiary)] mb-2">Directeur, Entreprise Partenaire</p>
+                            <div class="flex gap-1 mb-2 text-yellow-400">
+                                <i class="fa-solid fa-star text-sm"></i>
+                                <i class="fa-solid fa-star text-sm"></i>
+                                <i class="fa-solid fa-star text-sm"></i>
+                                <i class="fa-solid fa-star text-sm"></i>
+                                <i class="fa-solid fa-star text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[var(--text-secondary)] italic leading-relaxed relative pl-6">
+                        <i class="fa-solid fa-quote-left absolute left-0 top-0 text-[var(--accent-primary)] opacity-30"></i>
+                        "Notre collaboration avec l'AGEP a permis de réaliser des projets d'envergure qui transforment véritablement la ville. Une agence professionnelle et visionnaire."
+                    </p>
+                </div>
+                <div class="card group hover:shadow-xl transition-all duration-300 fade-in" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-[var(--accent-secondary)] to-[var(--accent-primary)] rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">MB</div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-lg text-[var(--text-primary)]">Marie Bemba</h4>
+                            <p class="text-sm text-[var(--text-tertiary)] mb-2">Responsable, Organisation Internationale</p>
+                            <div class="flex gap-1 mb-2 text-yellow-400">
+                                <i class="fa-solid fa-star text-sm"></i>
+                                <i class="fa-solid fa-star text-sm"></i>
+                                <i class="fa-solid fa-star text-sm"></i>
+                                <i class="fa-solid fa-star text-sm"></i>
+                                <i class="fa-solid fa-star text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[var(--text-secondary)] italic leading-relaxed relative pl-6">
+                        <i class="fa-solid fa-quote-left absolute left-0 top-0 text-[var(--accent-primary)] opacity-30"></i>
+                        "L'AGEP incarne l'excellence dans la gestion des espaces publics. Leur approche innovante et leur engagement sont remarquables."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- === CHIFFRES CLÉS === -->
+    <section class="section bg-[var(--bg-secondary)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-4 fade-in" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] rounded-full text-sm font-semibold mb-4">Impact</span>
+            </div>
+            <h2 class="section-title text-4xl md:text-5xl font-bold mb-12 text-center fade-in" data-aos="fade-up">Nos Réalisations en Chiffres</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center fade-in" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl md:text-6xl font-bold text-[var(--accent-primary)] mb-2" data-counter="50">0</div>
+                    <div class="text-lg text-[var(--text-secondary)] font-semibold">Projets Réalisés</div>
+                </div>
+                <div class="text-center fade-in" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl md:text-6xl font-bold text-[var(--accent-primary)] mb-2" data-counter="25">0</div>
+                    <div class="text-lg text-[var(--text-secondary)] font-semibold">Partenaires Actifs</div>
+                </div>
+                <div class="text-center fade-in" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl md:text-6xl font-bold text-[var(--accent-primary)] mb-2" data-counter="100">0</div>
+                    <div class="text-lg text-[var(--text-secondary)] font-semibold">Espaces Transformés</div>
+                </div>
+                <div class="text-center fade-in" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-5xl md:text-6xl font-bold text-[var(--accent-primary)] mb-2" data-counter="500">0</div>
+                    <div class="text-lg text-[var(--text-secondary)] font-semibold">K+ Citoyens Impactés</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- === APPEL À PARTENARIAT === -->
+    <section class="section bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+        </div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-sm font-semibold mb-4 fade-in" data-aos="fade-up">Rejoignez-nous</div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 fade-in" data-aos="fade-up">Construisons Ensemble l'Avenir de Kinshasa</h2>
+                <p class="text-xl mb-4 max-w-3xl mx-auto opacity-90 fade-in" data-aos="fade-up" data-aos-delay="200">
+                    Rejoignez-nous dans notre mission de transformation urbaine. Devenez partenaire de l'AGEP et participez à l'embellissement de notre capitale.
+                </p>
+                <p class="text-lg mb-8 opacity-75 fade-in" data-aos="fade-up" data-aos-delay="300">
+                    <strong>Rejoignez plus de 25 partenaires</strong> qui nous font confiance pour transformer Kinshasa
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 mb-10 text-left">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 fade-in" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-eye text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Visibilité Accrue</h3>
+                        <p class="opacity-90">Bénéficiez d'une exposition médiatique et d'une reconnaissance institutionnelle.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 fade-in" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-users text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Réseau Professionnel</h3>
+                        <p class="opacity-90">Accédez à un réseau élargi de partenaires et d'opportunités de collaboration.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 fade-in" data-aos="fade-up" data-aos-delay="500">
+                        <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-circle-check text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Impact Mesurable</h3>
+                        <p class="opacity-90">Contribuez directement au développement urbain et à l'amélioration de la qualité de vie.</p>
+                    </div>
+                </div>
+                <a href="partnerships.html" class="btn bg-white text-[var(--accent-primary)] hover:bg-gray-100 hover:scale-105 transition-transform duration-300 text-lg px-8 py-4 shadow-xl fade-in" data-aos="fade-up" data-aos-delay="600">
+                    Devenir Partenaire
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- === GALERIE === -->
+    <section class="section bg-[var(--bg-secondary)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] rounded-full text-sm font-semibold mb-4">Galerie</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">Boulevard Lumumba</h2>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                
+                <!-- Grille de photos -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+                    <a href="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=1200&fit=crop" class="gallery-item glightbox fade-in group" data-gallery="homepage-gallery" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative overflow-hidden rounded-lg aspect-square">
+                            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=800&fit=crop" alt="Boulevard Lumumba - Photo 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                    </a>
+                    <a href="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1200&h=1200&fit=crop" class="gallery-item glightbox fade-in group" data-gallery="homepage-gallery" data-aos="fade-up" data-aos-delay="250">
+                        <div class="relative overflow-hidden rounded-lg aspect-square">
+                            <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&h=800&fit=crop" alt="Boulevard Lumumba - Photo 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                    </a>
+                    <a href="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=1200&fit=crop" class="gallery-item glightbox fade-in group" data-gallery="homepage-gallery" data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative overflow-hidden rounded-lg aspect-square">
+                            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=800&fit=crop" alt="Boulevard Lumumba - Photo 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                    </a>
+                    <a href="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=1200&fit=crop" class="gallery-item glightbox fade-in group" data-gallery="homepage-gallery" data-aos="fade-up" data-aos-delay="350">
+                        <div class="relative overflow-hidden rounded-lg aspect-square">
+                            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=800&fit=crop" alt="Boulevard Lumumba - Photo 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Bouton Voir plus -->
+                <div class="text-center fade-in" data-aos="fade-up" data-aos-delay="400">
+                    <a href="gallery-single.html?album=boulevard-lumumba" class="btn btn-primary inline-flex items-center gap-2">
+                        Voir toutes les photos
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- === FOOTER === -->
+    <footer class="bg-[var(--bg-secondary)] border-t border-[var(--bg-tertiary)] py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="assets/logos/logo-noir.webp" alt="Logo AGEP" class="footer-logo h-12 mb-4">
+                    <p class="text-[var(--text-secondary)] text-sm">Transformer Kinshasa, Embellir Notre Avenir</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Accueil</a></li>
+                        <li><a href="about.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">À Propos</a></li>
+                        <li><a href="projects.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Projets</a></li>
+                        <li><a href="news.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Actualités</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Liens Utiles</h4>
+                    <ul class="space-y-2">
+                        <li><a href="gallery.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Galerie</a></li>
+                        <li><a href="partnerships.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Partenariats</a></li>
+                        <li><a href="contact.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-sm">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-3 text-sm text-[var(--text-secondary)]">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-[var(--accent-primary)]"></i>
+                            Kinshasa, RDC
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-[var(--accent-primary)]"></i>
+                            +243 XXX XXX XXX
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-[var(--accent-primary)]"></i>
+                            contact@agep-kinshasa.cd
+                        </li>
+                    </ul>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="w-10 h-10 bg-[var(--bg-primary)] rounded-lg flex items-center justify-center text-[var(--text-secondary)] hover:bg-[#1877F2] hover:text-white transition-all duration-300 group" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f group-hover:scale-110 transition-transform"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-[var(--bg-primary)] rounded-lg flex items-center justify-center text-[var(--text-secondary)] hover:bg-[#1DA1F2] hover:text-white transition-all duration-300 group" aria-label="Twitter">
+                            <i class="fa-brands fa-x-twitter group-hover:scale-110 transition-transform"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-[var(--bg-primary)] rounded-lg flex items-center justify-center text-[var(--text-secondary)] hover:bg-[#0077B5] hover:text-white transition-all durée-300 group" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in group-hover:scale-110 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-[var(--bg-tertiary)] pt-8 text-center text-sm text-[var(--text-tertiary)]">
+                <p>&copy; 2024 AGEP - Agence de Gestion et d'Embellissement des Espaces Publics. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bouton Retour en Haut -->
+    <button id="scrollToTop" class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-[var(--accent-primary)] text-white rounded-full shadow-lg hover:bg-[var(--accent-secondary)] transition-all duration-300 opacity-0 pointer-events-none flex items-center justify-center" aria-label="Retour en haut">
+        ↑
+    </button>
+    
+    <!-- Scripts -->
+    <!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
+    <script src="assets/js/particles.min.js"></script>
+     <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+     <script src="assets/js/aos.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    
+    <!-- Scripts Personnalisés -->
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/glightbox.min.js"></script>
+    
+    <!-- Initialisation -->
+    <script>
+        // Initialisation AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Initialisation Swiper pour les projets
+        const projectsSwiper = new Swiper('.projects-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+        
+        // Arrêter le carousel au survol d'un projet
+        const projectsSwiperContainer = document.querySelector('.projects-swiper');
+        if (projectsSwiperContainer) {
+            projectsSwiperContainer.addEventListener('mouseenter', () => {
+                projectsSwiper.autoplay.stop();
+            });
+            
+            projectsSwiperContainer.addEventListener('mouseleave', () => {
+                projectsSwiper.autoplay.start();
+            });
+        }
+        
+        // Initialisation Swiper pour les partenaires
+        const partnersSwiper = new Swiper('.partners-swiper', {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+            },
+        });
+        
+        // Initialisation Particles.js (gérée par main.js)
+        // La fonction initParticles() dans main.js vérifie automatiquement
+        // que l'élément existe avant d'initialiser
+        
+        // Compteurs animés
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-counter'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+            
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target + (target >= 100 ? '+' : '');
+                }
+            };
+            
+            updateCounter();
+        }
+        
+        // Observer pour déclencher les compteurs quand ils sont visibles
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    animateCounter(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        // Observer tous les éléments avec data-counter
+        document.querySelectorAll('[data-counter]').forEach(counter => {
+            counterObserver.observe(counter);
+        });
+        
+        // Bouton Retour en Haut
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        if (scrollToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    scrollToTopBtn.classList.add('opacity-100');
+                } else {
+                    scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                    scrollToTopBtn.classList.remove('opacity-100');
+                }
+            });
+            
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // Initialisation GLightbox pour la galerie de la page d'accueil
+        function initHomepageGallery() {
+            if (typeof GLightbox !== 'undefined') {
+                const lightbox = GLightbox({
+                    selector: '.glightbox[data-gallery="homepage-gallery"]',
+                    touchNavigation: true,
+                    loop: true,
+                    autoplayVideos: false,
+                    onOpen: () => {
+                        // Blur l'élément actif pour éviter les problèmes d'accessibilité
+                        const activeElement = document.activeElement;
+                        if (activeElement && typeof activeElement.blur === 'function') {
+                            activeElement.blur();
+                        }
+                    }
+                });
+            } else {
+                // Attendre que GLightbox soit chargé
+                const checkGLightbox = setInterval(() => {
+                    if (typeof GLightbox !== 'undefined') {
+                        clearInterval(checkGLightbox);
+                        initHomepageGallery();
+                    }
+                }, 50);
+                
+                setTimeout(() => {
+                    clearInterval(checkGLightbox);
+                    if (typeof GLightbox === 'undefined') {
+                        console.error('GLightbox n\'a pas pu être chargé');
+                    }
+                }, 5000);
+            }
+        }
+        
+        // Initialiser le lightbox après le chargement du DOM
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(initHomepageGallery, 500);
+            });
+        } else {
+            setTimeout(initHomepageGallery, 500);
+        }
+    </script>
+</body>
+</html>
+

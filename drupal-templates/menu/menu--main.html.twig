@@ -1,0 +1,99 @@
+{#
+/**
+ * @file
+ * Template pour le menu principal (main menu) conforme au design du projet AGEP
+ *
+ * Variables disponibles:
+ * - items: Liste des éléments du menu
+ * - attributes: Attributs HTML pour le conteneur <ul>
+ * - menu_name: Le nom du menu (ex: 'main')
+ */
+#}
+
+{% import _self as menus %}
+
+{#
+  Nous appelons une macro qui peut être réutilisée pour générer les liens du menu.
+  @see https://twig.symfony.com/doc/2.x/tags/macro.html
+#}
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      {# Menu Desktop - visible sur les grands écrans #}
+      <div class="hidden lg:flex items-center space-x-8">
+        {% for item in items %}
+          {# Déterminer si l'élément est actif (page courante ou dans le chemin actif) #}
+          {% set is_active = (item.in_active_trail or item.is_active) ? 'active' : '' %}
+          {% set link_classes = [
+            'nav-link',
+            'text-[var(--text-primary)]',
+            'hover:text-[var(--accent-primary)]',
+            'font-medium',
+            'transition-colors'
+          ] %}
+          {% if is_active %}
+            {% set link_classes = link_classes|merge([is_active]) %}
+          {% endif %}
+          
+          <a href="{{ item.url }}"{{ item.attributes.addClass(link_classes) }}>
+            {{ item.title }}
+          </a>
+        {% endfor %}
+      </div>
+      
+      {# Menu Mobile - visible sur les petits écrans #}
+      <div class="nav-menu hidden lg:hidden pb-4">
+        <div class="flex flex-col space-y-4 mt-4">
+          {% for item in items %}
+            {# Déterminer si l'élément est actif #}
+            {% set is_active = (item.in_active_trail or item.is_active) ? 'active' : '' %}
+            {% set link_classes = [
+              'nav-link',
+              'text-[var(--text-primary)]',
+              'hover:text-[var(--accent-primary)]',
+              'font-medium',
+              'py-2'
+            ] %}
+            {% if is_active %}
+              {% set link_classes = link_classes|merge([is_active]) %}
+            {% endif %}
+            
+            <a href="{{ item.url }}"{{ item.attributes.addClass(link_classes) }}>
+              {{ item.title }}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      {# Sous-menus (si nécessaire) #}
+      <ul{{ attributes.addClass('submenu') }}>
+        {% for item in items %}
+          {% set is_active = (item.in_active_trail or item.is_active) ? 'active' : '' %}
+          {% set link_classes = [
+            'nav-link',
+            'text-[var(--text-primary)]',
+            'hover:text-[var(--accent-primary)]',
+            'font-medium',
+            'transition-colors'
+          ] %}
+          {% if is_active %}
+            {% set link_classes = link_classes|merge([is_active]) %}
+          {% endif %}
+          
+          <li{{ item.attributes }}>
+            <a href="{{ item.url }}"{{ item.attributes.addClass(link_classes) }}>
+              {{ item.title }}
+            </a>
+            {% if item.below %}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
