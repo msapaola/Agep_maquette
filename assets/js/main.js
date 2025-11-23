@@ -18,9 +18,6 @@ function initMain() {
     
     // Gestion du scroll de la navbar
     handleNavbarScroll();
-    
-    // Initialisation de Particles.js
-    initParticles();
 }
 
 /**
@@ -65,10 +62,19 @@ function initNavigation() {
     
     // Mise en surbrillance du lien actif
     const currentPath = window.location.pathname;
+    const currentPage = currentPath.split('/').pop() || 'index.html';
+    
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath || 
-            (currentPath === '/' && link.getAttribute('href') === 'index.html')) {
+        const href = link.getAttribute('href');
+        const linkPage = href.split('/').pop();
+        
+        // Comparer les noms de fichiers
+        if (linkPage === currentPage || 
+            (currentPage === '' && linkPage === 'index.html') ||
+            (currentPath === '/' && linkPage === 'index.html')) {
             link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
 }
@@ -293,60 +299,6 @@ function initSmoothScroll() {
     });
 }
 
-/**
- * Initialise Particles.js de manière sécurisée
- * Vérifie que l'élément et la fonction existent avant d'initialiser
- */
-function initParticles() {
-    // Vérifier que l'élément particles-js existe
-    const particlesContainer = document.getElementById('particles-js');
-    
-    if (!particlesContainer) {
-        // L'élément n'existe pas, pas d'erreur, juste on ne fait rien
-        return;
-    }
-    
-    // Vérifier que particlesJS est disponible
-    if (typeof particlesJS === 'undefined') {
-        console.warn('Particles.js n\'est pas chargé. Vérifiez que le script est inclus.');
-        return;
-    }
-    
-    // Initialiser particles.js
-    try {
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80 },
-                color: { value: '#3D95C9' },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5 },
-                size: { value: 3 },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#3D95C9',
-                    opacity: 0.4,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: 'none',
-                    random: true,
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: { enable: true, mode: 'repulse' },
-                    onclick: { enable: true, mode: 'push' },
-                }
-            }
-        });
-    } catch (error) {
-        console.error('Erreur lors de l\'initialisation de Particles.js:', error);
-    }
-}
 
 // Initialisation au chargement du DOM
 document.addEventListener('DOMContentLoaded', () => {
@@ -375,7 +327,7 @@ if (typeof Drupal !== 'undefined' && Drupal.behaviors) {
 
 // Export pour utilisation dans d'autres scripts
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { initMain, initNavigation, initForms, validateForm, validateField, initParticles };
+    module.exports = { initMain, initNavigation, initForms, validateForm, validateField };
 }
 
 

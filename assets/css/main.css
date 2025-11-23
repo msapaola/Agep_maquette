@@ -201,6 +201,33 @@ a:hover {
     display: block !important;
 }
 
+/* Styles pour les liens de navigation */
+.nav-link {
+    position: relative;
+    transition: color var(--transition-base);
+}
+
+.nav-link.active {
+    color: var(--accent-primary) !important;
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 2px;
+}
+
+/* Pour le menu mobile */
+.nav-menu .nav-link.active::after {
+    bottom: 8px;
+}
+
 /* === BOUTON TOGGLE THÈME === */
 .theme-toggle {
     background: none;
