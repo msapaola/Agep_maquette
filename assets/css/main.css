@@ -41,7 +41,8 @@ img, video, iframe {
 /* S'assurer que les containers ne dépassent pas */
 .container {
     max-width: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    overflow: hidden;
 }
 
 /* === TYPOGRAPHIE === */
