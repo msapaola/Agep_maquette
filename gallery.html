@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/tailwind-compiled.css">
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/fontawesome/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" type="image/webp" href="assets/logos/logo-couleur.webp">
     
@@ -100,9 +101,7 @@
                 </div>
                 <div class="flex items-center space-x-4">
                     <button class="theme-toggle" aria-label="Basculer entre mode clair et sombre">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
-                        </svg>
+                        <i class="fa-solid fa-circle-half-stroke text-2xl"></i>
                     </button>
                     <button class="nav-toggle lg:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5" aria-label="Menu">
                         <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
@@ -130,9 +129,7 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex items-center space-x-2 text-sm fade-in" data-aos="fade-up">
                 <a href="index.html" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors flex items-center gap-1">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                    </svg>
+                    <i class="fa-solid fa-house w-4 h-4"></i>
                     Accueil
                 </a>
                 <span class="text-[var(--text-tertiary)]">/</span>
@@ -165,7 +162,7 @@
             </div>
             
             <!-- Grille d'albums -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="albums-grid">
                 <!-- Album 1: Boulevard Lumumba -->
                 <a href="gallery-single.html?album=boulevard-lumumba" class="album-card card overflow-hidden cursor-pointer fade-in block" data-aos="fade-up" data-aos-delay="100">
                     <div class="album-cover h-64 overflow-hidden">
@@ -174,9 +171,7 @@
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-[var(--text-primary)]">Boulevard Lumumba</h3>
                         <div class="flex items-center gap-2 text-[var(--accent-primary)] mt-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
+                            <i class="fa-solid fa-images w-5 h-5"></i>
                             <span class="font-semibold">4 photos</span>
                         </div>
                     </div>
@@ -190,9 +185,7 @@
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-[var(--text-primary)]">Place de la Victoire</h3>
                         <div class="flex items-center gap-2 text-[var(--accent-primary)] mt-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
+                            <i class="fa-solid fa-images w-5 h-5"></i>
                             <span class="font-semibold">2 photos</span>
                         </div>
                     </div>
@@ -206,9 +199,7 @@
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-[var(--text-primary)]">Parc de la Gombe</h3>
                         <div class="flex items-center gap-2 text-[var(--accent-primary)] mt-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
+                            <i class="fa-solid fa-images w-5 h-5"></i>
                             <span class="font-semibold">2 photos</span>
                         </div>
                     </div>
@@ -222,9 +213,7 @@
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-[var(--text-primary)]">Rond-point Ngaliema</h3>
                         <div class="flex items-center gap-2 text-[var(--accent-primary)] mt-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
+                            <i class="fa-solid fa-images w-5 h-5"></i>
                             <span class="font-semibold">2 photos</span>
                         </div>
                     </div>
@@ -238,13 +227,26 @@
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-[var(--text-primary)]">Événements</h3>
                         <div class="flex items-center gap-2 text-[var(--accent-primary)] mt-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
+                            <i class="fa-solid fa-images w-5 h-5"></i>
                             <span class="font-semibold">2 photos</span>
                         </div>
                     </div>
                 </a>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center items-center gap-2 mt-12 fade-in" data-aos="fade-up">
+                <button class="pagination-btn pagination-prev" disabled>
+                    <i class="fa-solid fa-chevron-left w-5 h-5"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <span class="px-3 text-[var(--text-tertiary)]">...</span>
+                <button class="pagination-btn">6</button>
+                <button class="pagination-btn pagination-next">
+                    <i class="fa-solid fa-chevron-right w-5 h-5"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -278,22 +280,15 @@
                     <h4 class="font-bold mb-4">Contact</h4>
                     <ul class="space-y-3 text-sm text-[var(--text-secondary)]">
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-[var(--accent-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
+                            <i class="fa-solid fa-location-dot w-5 h-5 text-[var(--accent-primary)]"></i>
                             Kinshasa, RDC
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-[var(--accent-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
+                            <i class="fa-solid fa-phone w-5 h-5 text-[var(--accent-primary)]"></i>
                             +243 XXX XXX XXX
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-[var(--accent-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
+                            <i class="fa-solid fa-envelope w-5 h-5 text-[var(--accent-primary)]"></i>
                             contact@agep-kinshasa.cd
                         </li>
                     </ul>
@@ -307,7 +302,7 @@
     
     <!-- Bouton Retour en Haut -->
     <button id="scrollToTop" class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-[var(--accent-primary)] text-white rounded-full shadow-lg hover:bg-[var(--accent-secondary)] transition-all duration-300 opacity-0 pointer-events-none flex items-center justify-center" aria-label="Retour en haut">
-        ↑
+        <i class="fa-solid fa-arrow-up"></i>
     </button>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -318,6 +313,55 @@
     <script src="assets/js/main.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true, offset: 100 });
+        
+        // Gestion de la pagination
+        const paginationButtons = document.querySelectorAll('.pagination-btn:not(.pagination-prev):not(.pagination-next)');
+        const prevBtn = document.querySelector('.pagination-prev');
+        const nextBtn = document.querySelector('.pagination-next');
+        let currentPage = 1;
+        
+        paginationButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (!btn.classList.contains('pagination-prev') && !btn.classList.contains('pagination-next')) {
+                    paginationButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentPage = parseInt(btn.textContent);
+                    updatePaginationState();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updateActivePage();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < 6) {
+                currentPage++;
+                updateActivePage();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+        
+        function updateActivePage() {
+            paginationButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (parseInt(btn.textContent) === currentPage) {
+                    btn.classList.add('active');
+                }
+            });
+            updatePaginationState();
+        }
+        
+        function updatePaginationState() {
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === 6;
+        }
         
         // Bouton Retour en Haut
         const scrollToTopBtn = document.getElementById('scrollToTop');

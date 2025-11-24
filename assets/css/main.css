@@ -19,6 +19,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -27,6 +28,19 @@ body {
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--bg-primary);
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Prévenir le défilement horizontal */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* S'assurer que les containers ne dépassent pas */
+.container {
+    max-width: 100%;
     overflow-x: hidden;
 }
 
@@ -212,6 +226,7 @@ a:hover {
     font-weight: 600;
 }
 
+/* Ligne de soulignement pour le menu desktop */
 .nav-link.active::after {
     content: '';
     position: absolute;
@@ -223,9 +238,13 @@ a:hover {
     border-radius: 2px;
 }
 
-/* Pour le menu mobile */
+/* Pour le menu mobile - ligne en bas du lien */
+.nav-menu .nav-link {
+    display: block;
+}
+
 .nav-menu .nav-link.active::after {
-    bottom: 8px;
+    bottom: 0;
 }
 
 /* === BOUTON TOGGLE THÈME === */
@@ -581,4 +600,3 @@ a:hover {
     outline: 2px solid var(--accent-primary);
     outline-offset: 2px;
 }
-
