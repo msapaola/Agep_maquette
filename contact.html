@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contactez l'AGEP - Coordonnées, formulaire de contact et localisation">
+    <meta name="description" content="Contactez l'AGEP - Coordonnées, email, téléphone et WhatsApp">
     <title>Contact - AGEP Kinshasa</title>
     
     <link rel="stylesheet" href="assets/css/tailwind-compiled.css">
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/fontawesome/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="icon" type="image/webp" href="assets/logos/logo-couleur.webp">
 </head>
 <body class="bg-[var(--bg-primary)] text-[var(--text-primary)]">
@@ -39,9 +39,7 @@
                 </div>
                 <div class="flex items-center space-x-4">
                     <button class="theme-toggle" aria-label="Basculer entre mode clair et sombre">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
-                        </svg>
+                        <i class="fa-solid fa-circle-half-stroke text-2xl"></i>
                     </button>
                     <button class="nav-toggle lg:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5" aria-label="Menu">
                         <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-all"></span>
@@ -73,111 +71,153 @@
         </div>
     </section>
     
+    <!-- Section Contact Direct -->
     <section class="section">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Formulaire de Contact -->
-                <div class="fade-in" data-aos="fade-up">
-                    <h2 class="text-3xl font-bold mb-6">Envoyez-nous un Message</h2>
-                    <form class="space-y-6">
-                        <div class="form-group">
-                            <label class="form-label">Nom complet *</label>
-                            <input type="text" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Email *</label>
-                            <input type="email" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Téléphone *</label>
-                            <input type="tel" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Type de demande *</label>
-                            <select class="form-select" required>
-                                <option value="">Sélectionnez un type</option>
-                                <option value="information">Demande d'information</option>
-                                <option value="partenariat">Demande de partenariat</option>
-                                <option value="projet">Proposition de projet</option>
-                                <option value="media">Demande média</option>
-                                <option value="autre">Autre</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Sujet *</label>
-                            <input type="text" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Message *</label>
-                            <textarea class="form-textarea" rows="6" required placeholder="Votre message..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-full">Envoyer le Message</button>
-                    </form>
+            <div class="max-w-4xl mx-auto text-center mb-12 fade-in" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] rounded-full text-sm font-semibold mb-4">Contact Direct</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Choisissez votre canal de communication</h2>
+                <p class="text-lg text-[var(--text-secondary)]">Contactez-nous directement via le moyen qui vous convient le mieux</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-16">
+                <!-- Email -->
+                <a href="mailto:contact@agep.kinshasa.cd?subject=Contact%20AGEP&body=Bonjour,%0D%0A%0D%0A" class="card fade-in group hover:scale-[1.02] transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-primary)]/80 text-white flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-center">Email</h3>
+                    <p class="text-[var(--text-secondary)] mb-4 text-center">Envoyez-nous un email détaillé avec vos questions ou demandes.</p>
+                    <div class="text-center">
+                        <span class="font-semibold text-[var(--accent-primary)] break-all text-sm">contact@agep.kinshasa.cd</span>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span class="text-sm text-[var(--text-tertiary)]">Cliquez pour ouvrir votre client email</span>
+                    </div>
+                </a>
+                
+                <!-- WhatsApp -->
+                <a href="https://wa.me/243813347609?text=Bonjour%20AGEP,%20je%20souhaite%20vous%20contacter" target="_blank" rel="noreferrer" class="card fade-in group hover:scale-[1.02] transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-white text-[#25D366] flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-center">WhatsApp</h3>
+                    <p class="text-[var(--text-secondary)] mb-4 text-center">Discutez avec nous en temps réel via WhatsApp Business.</p>
+                    <div class="text-center">
+                        <span class="font-semibold text-[#25D366] text-lg">+243 813 347 609</span>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span class="text-sm text-[var(--text-tertiary)]">Cliquez pour ouvrir WhatsApp</span>
+                    </div>
+                </a>
+                
+                <!-- Téléphone -->
+                <a href="tel:+243813347609" class="card fade-in group hover:scale-[1.02] transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[var(--accent-secondary)] to-[var(--accent-secondary)]/80 text-white flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-center">Téléphone</h3>
+                    <p class="text-[var(--text-secondary)] mb-4 text-center">Appelez-nous directement pour une réponse immédiate.</p>
+                    <div class="text-center">
+                        <span class="font-semibold text-[var(--accent-secondary)] text-lg">+243 813 347 609</span>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span class="text-sm text-[var(--text-tertiary)]">Cliquez pour appeler</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Coordonnées Complètes -->
+    <section class="section bg-[var(--bg-secondary)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 fade-in" data-aos="fade-up">
+                    <span class="inline-block px-4 py-2 bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] rounded-full text-sm font-semibold mb-4">Informations</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Nos Coordonnées Complètes</h2>
                 </div>
                 
-                <!-- Coordonnées et Carte -->
-                <div class="fade-in" data-aos="fade-up" data-aos-delay="200">
-                    <h2 class="text-3xl font-bold mb-6">Nos Coordonnées</h2>
-                    
-                    <div class="space-y-6 mb-8">
-                        <div class="flex items-start">
-                            <div class="text-2xl mr-4">📍</div>
-                            <div>
-                                <h3 class="font-bold mb-1">Adresse</h3>
-                                <p class="text-[var(--text-secondary)]">Avenue de la République<br>Gombe, Kinshasa<br>République Démocratique du Congo</p>
-                            </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <!-- Adresse -->
+                    <div class="card text-center fade-in" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-location-dot"></i>
                         </div>
-                        <div class="flex items-start">
-                            <div class="text-2xl mr-4">📞</div>
-                            <div>
-                                <h3 class="font-bold mb-1">Téléphone</h3>
-                                <p class="text-[var(--text-secondary)]">Standard : +243 XXX XXX XXX<br>Urgences : +243 XXX XXX XXX</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="text-2xl mr-4">✉️</div>
-                            <div>
-                                <h3 class="font-bold mb-1">Email</h3>
-                                <p class="text-[var(--text-secondary)]">contact@agep-kinshasa.cd<br>info@agep-kinshasa.cd</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="text-2xl mr-4">🕒</div>
-                            <div>
-                                <h3 class="font-bold mb-1">Horaires d'ouverture</h3>
-                                <p class="text-[var(--text-secondary)]">Lundi - Vendredi : 8h00 - 17h00<br>Samedi : 9h00 - 13h00<br>Dimanche : Fermé</p>
-                            </div>
-                        </div>
+                        <h3 class="font-bold mb-2">Adresse</h3>
+                        <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+                            Avenue de la République<br>
+                            Gombe, Kinshasa<br>
+                            République Démocratique du Congo
+                        </p>
                     </div>
                     
-                    <!-- Réseaux Sociaux -->
-                    <div class="mb-8">
-                        <h3 class="font-bold mb-4">Suivez-nous</h3>
-                        <div class="flex space-x-4">
-                            <a href="#" class="w-12 h-12 bg-[var(--accent-primary)] rounded-full flex items-center justify-center text-white hover:bg-[var(--accent-secondary)] transition-colors" aria-label="Facebook">📘</a>
-                            <a href="#" class="w-12 h-12 bg-[var(--accent-primary)] rounded-full flex items-center justify-center text-white hover:bg-[var(--accent-secondary)] transition-colors" aria-label="Twitter">🐦</a>
-                            <a href="#" class="w-12 h-12 bg-[var(--accent-primary)] rounded-full flex items-center justify-center text-white hover:bg-[var(--accent-secondary)] transition-colors" aria-label="LinkedIn">💼</a>
-                            <a href="#" class="w-12 h-12 bg-[var(--accent-primary)] rounded-full flex items-center justify-center text-white hover:bg-[var(--accent-secondary)] transition-colors" aria-label="Instagram">📷</a>
+                    <!-- Téléphones -->
+                    <div class="card text-center fade-in" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-phone"></i>
                         </div>
+                        <h3 class="font-bold mb-2">Téléphone</h3>
+                        <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+                            <a href="tel:+243813347609" class="text-[var(--accent-primary)] hover:underline">Standard : +243 813 347 609</a><br>
+                            <a href="tel:+243813347609" class="text-[var(--accent-primary)] hover:underline">Urgences : +243 813 347 609</a>
+                        </p>
                     </div>
                     
-                    <!-- Code QR -->
-                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg">
-                        <h3 class="font-bold mb-4">Contact Rapide</h3>
-                        <div id="qr-code" class="flex justify-center">
-                            <div class="w-32 h-32 bg-white rounded-lg flex items-center justify-center">
-                                <p class="text-xs text-center text-gray-600">QR Code<br/>Contact</p>
-                            </div>
+                    <!-- Emails -->
+                    <div class="card text-center fade-in" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-envelope"></i>
                         </div>
-                        <p class="text-sm text-[var(--text-secondary)] text-center mt-4">Scannez pour enregistrer nos coordonnées</p>
+                        <h3 class="font-bold mb-2">Email</h3>
+                        <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+                            <a href="mailto:contact@agep.kinshasa.cd" class="text-[var(--accent-primary)] hover:underline break-all">contact@agep.kinshasa.cd</a><br>
+                            <a href="mailto:dg@agep.kinshasa.cd" class="text-[var(--accent-primary)] hover:underline break-all">info@agep-kinshasa.cd</a>
+                        </p>
+                    </div>
+                    
+                    <!-- Horaires -->
+                    <div class="card text-center fade-in" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Horaires</h3>
+                        <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+                            Lun - Ven : 8h00 - 17h00<br>
+                            Samedi : 9h00 - 13h00<br>
+                            Dimanche : Fermé
+                        </p>
                     </div>
                 </div>
             </div>
-            
-            <!-- Carte Interactive -->
-            <div class="mt-12 fade-in" data-aos="fade-up">
-                <h2 class="text-3xl font-bold mb-6 text-center">Notre Localisation</h2>
-                <div id="map" class="h-96 w-full rounded-lg bg-[var(--bg-secondary)]"></div>
+        </div>
+    </section>
+    
+    <!-- Section Réseaux Sociaux -->
+    <section class="section">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-in" data-aos="fade-up">Suivez-nous sur les réseaux sociaux</h2>
+                <p class="text-lg text-[var(--text-secondary)] mb-8 fade-in" data-aos="fade-up" data-aos-delay="100">
+                    Restez connecté avec l'AGEP et suivez nos dernières actualités
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 fade-in" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#" class="w-16 h-16 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--text-primary)] hover:bg-[#1877F2] hover:text-white transition-all duration-300 group" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f text-2xl group-hover:scale-110 transition-transform group-hover:text-white"></i>
+                    </a>
+                    <a href="#" class="w-16 h-16 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--text-primary)] hover:bg-[#1DA1F2] hover:text-white transition-all duration-300 group" aria-label="Twitter">
+                        <i class="fa-brands fa-x-twitter text-2xl group-hover:scale-110 transition-transform group-hover:text-white"></i>
+                    </a>
+                    <a href="#" class="w-16 h-16 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--text-primary)] hover:bg-[#0077B5] hover:text-white transition-all duration-300 group" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in text-2xl group-hover:scale-110 transition-transform group-hover:text-white"></i>
+                    </a>
+                    <a href="#" class="w-16 h-16 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--text-primary)] hover:bg-[#E4405F] hover:text-white transition-all duration-300 group" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram text-2xl group-hover:scale-110 transition-transform group-hover:text-white"></i>
+                    </a>
+                    <a href="https://wa.me/243813347609" target="_blank" rel="noreferrer" class="w-16 h-16 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--text-primary)] hover:bg-[#25D366] hover:text-white transition-all duration-300 group" aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp text-2xl group-hover:scale-110 transition-transform group-hover:text-white"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -208,10 +248,19 @@
                 </div>
                 <div>
                     <h4 class="font-bold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-sm text-[var(--text-secondary)]">
-                        <li>📍 Kinshasa, RDC</li>
-                        <li>📞 +243 XXX XXX XXX</li>
-                        <li>✉️ contact@agep-kinshasa.cd</li>
+                    <ul class="space-y-3 text-sm text-[var(--text-secondary)]">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot w-5 h-5 text-[var(--accent-primary)]"></i>
+                            Kinshasa, RDC
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone w-5 h-5 text-[var(--accent-primary)]"></i>
+                            +243 813 347 609
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope w-5 h-5 text-[var(--accent-primary)]"></i>
+                            contact@agep.kinshasa.cd
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -221,8 +270,12 @@
         </div>
     </footer>
     
+    <!-- Bouton Retour en Haut -->
+    <button id="scrollToTop" class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-[var(--accent-primary)] text-white rounded-full shadow-lg hover:bg-[var(--accent-secondary)] transition-all duration-300 opacity-0 pointer-events-none flex items-center justify-center" aria-label="Retour en haut">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="assets/js/utils.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/loader.js"></script>
@@ -231,19 +284,23 @@
     <script>
         AOS.init({ duration: 1000, once: true, offset: 100 });
         
-        // Initialisation de la carte Leaflet
-        const map = L.map('map').setView([-4.3276, 15.3136], 13); // Coordonnées de Kinshasa
-        
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-        
-        // Marqueur pour l'AGEP
-        L.marker([-4.3276, 15.3136])
-            .addTo(map)
-            .bindPopup('<b>AGEP</b><br>Agence de Gestion et d\'Embellissement des Espaces Publics')
-            .openPopup();
+        // Bouton Retour en Haut
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        if (scrollToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    scrollToTopBtn.classList.add('opacity-100');
+                } else {
+                    scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                    scrollToTopBtn.classList.remove('opacity-100');
+                }
+            });
+            
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
     </script>
 </body>
 </html>
-

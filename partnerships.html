@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/tailwind-compiled.css">
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/fontawesome/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" type="image/webp" href="assets/logos/logo-couleur.webp">
 </head>
@@ -83,17 +84,23 @@
             
             <div class="grid md:grid-cols-3 gap-8 mb-16">
                 <div class="card text-center fade-in" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-5xl mb-4">🌟</div>
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] flex items-center justify-center text-3xl">
+                        <span class="fa-solid fa-star"></span>
+                    </div>
                     <h3 class="text-2xl font-bold mb-4">Visibilité Accrue</h3>
                     <p class="text-[var(--text-secondary)]">Bénéficiez d'une exposition médiatique et d'une reconnaissance institutionnelle à travers nos projets d'envergure.</p>
                 </div>
                 <div class="card text-center fade-in" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-5xl mb-4">🤝</div>
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[var(--accent-secondary)]/15 text-[var(--accent-secondary)] flex items-center justify-center text-3xl">
+                        <span class="fa-solid fa-handshake"></span>
+                    </div>
                     <h3 class="text-2xl font-bold mb-4">Réseau Professionnel</h3>
                     <p class="text-[var(--text-secondary)]">Accédez à un réseau élargi de partenaires institutionnels et privés pour développer vos opportunités.</p>
                 </div>
                 <div class="card text-center fade-in" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-5xl mb-4">🏆</div>
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] flex items-center justify-center text-3xl">
+                        <span class="fa-solid fa-chart-line"></span>
+                    </div>
                     <h3 class="text-2xl font-bold mb-4">Impact Mesurable</h3>
                     <p class="text-[var(--text-secondary)]">Contribuez directement au développement urbain et à l'amélioration de la qualité de vie de millions de citoyens.</p>
                 </div>
@@ -176,57 +183,108 @@
             </div>
         </div>
     </section>
+
+    <section class="section bg-[var(--bg-secondary)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center mb-12 fade-in" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Ils nous font confiance</h2>
+                <p class="text-[var(--text-secondary)]">Institutions publiques, entreprises privées et initiatives citoyennes nous accompagnent déjà.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card flex items-center gap-4 fade-in" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 rounded-full bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] flex items-center justify-center text-xl">
+                        <span class="fa-solid fa-handshake"></span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg">Banque du Progrès</p>
+                        <p class="text-sm text-[var(--text-tertiary)]">Institution financière</p>
+                    </div>
+                </div>
+                <div class="card flex items-center gap-4 fade-in" data-aos="fade-up" data-aos-delay="150">
+                    <div class="w-12 h-12 rounded-full bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] flex items-center justify-center text-xl">
+                        <span class="fa-solid fa-handshake"></span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg">Immorose Developments</p>
+                        <p class="text-sm text-[var(--text-tertiary)]">Aménagement urbain</p>
+                    </div>
+                </div>
+                <div class="card flex items-center gap-4 fade-in" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 rounded-full bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] flex items-center justify-center text-xl">
+                        <span class="fa-solid fa-handshake"></span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg">Fondation Kongo</p>
+                        <p class="text-sm text-[var(--text-tertiary)]">Organisation philanthropique</p>
+                    </div>
+                </div>
+                <div class="card flex items-center gap-4 fade-in" data-aos="fade-up" data-aos-delay="250">
+                    <div class="w-12 h-12 rounded-full bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] flex items-center justify-center text-xl">
+                        <span class="fa-solid fa-handshake"></span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg">Société Lumumba Invest</p>
+                        <p class="text-sm text-[var(--text-tertiary)]">Investisseur privé</p>
+                    </div>
+                </div>
+                <div class="card flex items-center gap-4 fade-in" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 rounded-full bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] flex items-center justify-center text-xl">
+                        <span class="fa-solid fa-handshake"></span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg">Kinshasa Business Club</p>
+                        <p class="text-sm text-[var(--text-tertiary)]">Collectif d'entreprises</p>
+                    </div>
+                </div>
+                <div class="card flex items-center gap-4 fade-in" data-aos="fade-up" data-aos-delay="350">
+                    <div class="w-12 h-12 rounded-full bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] flex items-center justify-center text-xl">
+                        <span class="fa-solid fa-handshake"></span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg">Collectif Citoyen Verde</p>
+                        <p class="text-sm text-[var(--text-tertiary)]">Initiative citoyenne</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <section class="section bg-[var(--bg-secondary)]">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="section-title text-4xl md:text-5xl font-bold mb-12 fade-in" data-aos="fade-up">Demande de Partenariat</h2>
-                <form class="card fade-in" data-aos="fade-up" data-aos-delay="200">
-                    <div class="form-group">
-                        <label class="form-label">Nom de l'organisation *</label>
-                        <input type="text" class="form-input" required>
+            <div class="max-w-4xl mx-auto text-center mb-12 fade-in" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Contactez directement notre équipe</h2>
+                <p class="text-lg text-[var(--text-secondary)]">Choisissez le canal qui vous convient et entrez en relation avec nous en un clic.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="mailto:contact@agep-kinshasa.cd" class="card fade-in group hover:scale-[1.02] transition-transform" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] flex items-center justify-center text-2xl">
+                        <span class="fa-solid fa-envelope"></span>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label">Type de partenariat *</label>
-                        <select class="form-select" required>
-                            <option value="">Sélectionnez un type</option>
-                            <option value="strategique">Partenariat Stratégique</option>
-                            <option value="technique">Partenariat Technique</option>
-                            <option value="financier">Partenariat Financier</option>
-                            <option value="institutionnel">Partenariat Institutionnel</option>
-                        </select>
+                    <h3 class="text-xl font-bold mb-2">Email Officiel</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">Envoyez-nous une proposition détaillée et joignez vos documents.</p>
+                    <span class="font-semibold text-[var(--accent-primary)] break-all">contact@agep-kinshasa.cd</span>
+                </a>
+                <a href="https://wa.me/243000000000" target="_blank" rel="noreferrer" class="card fade-in group hover:scale-[1.02] transition-transform" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#25D366]/15 text-[#25D366] flex items-center justify-center text-2xl">
+                        <span class="fa-brands fa-whatsapp"></span>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="form-group">
-                            <label class="form-label">Nom du contact *</label>
-                            <input type="text" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Fonction *</label>
-                            <input type="text" class="form-input" required>
-                        </div>
+                    <h3 class="text-xl font-bold mb-2">WhatsApp Business</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">Discutez avec notre cellule partenariat et obtenez une réponse rapide.</p>
+                    <span class="font-semibold text-[#25D366]">+243&nbsp;000&nbsp;000&nbsp;000</span>
+                </a>
+                <a href="tel:+243000000000" class="card fade-in group hover:scale-[1.02] transition-transform" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[var(--accent-secondary)]/15 text-[var(--accent-secondary)] flex items-center justify-center text-2xl">
+                        <span class="fa-solid fa-phone"></span>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="form-group">
-                            <label class="form-label">Email *</label>
-                            <input type="email" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Téléphone *</label>
-                            <input type="tel" class="form-input" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Message *</label>
-                        <textarea class="form-textarea" rows="5" required placeholder="Décrivez votre projet de partenariat..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-full">Envoyer la Demande</button>
-                </form>
-                
-                <div class="mt-8 text-center">
-                    <p class="text-[var(--text-secondary)] mb-4">Téléchargez notre dossier de partenariat pour plus d'informations</p>
-                    <a href="#" class="btn btn-secondary inline-block" download>📄 Télécharger le Dossier (PDF)</a>
-                </div>
+                    <h3 class="text-xl font-bold mb-2">Ligne Directe</h3>
+                    <p class="text-[var(--text-secondary)] mb-4">Appelez notre direction des partenariats pour planifier un rendez-vous.</p>
+                    <span class="font-semibold text-[var(--accent-secondary)]">+243&nbsp;000&nbsp;000&nbsp;000</span>
+                </a>
+            </div>
+            <div class="mt-12 card text-center fade-in" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="text-2xl font-bold mb-2">Vous préférez un rendez-vous ?</h3>
+                <p class="text-[var(--text-secondary)] mb-4">Envoyez-nous un email avec vos disponibilités ou contactez-nous via WhatsApp pour fixer un appel vidéo.</p>
+                <p class="text-sm text-[var(--text-tertiary)]">Disponibles du lundi au vendredi, 9h00 - 17h00 (GMT+1)</p>
             </div>
         </div>
     </section>
